@@ -1,0 +1,185 @@
+.nav-item a{
+text-decoration:none;
+color: white;
+font-size: 1.5em;
+      -webkit-transition: all .3s;
+      -moz-transition: all .3s;
+      transition: all .3s;
+}
+
+.enviarDica_Id{
+font-size:10px;
+}
+
+
+.nav-item{
+padding-right:10px;
+ 
+}
+
+.dropdown{
+text-align:center;
+}
+
+.imagemlivro{
+max-height:100px;
+max-width:100px;
+}
+
+
+
+
+
+
+#about{
+background-color:#6495ED;
+}
+
+#img1{
+width:250px;
+height:250px;
+}
+
+hr.star-light::after{
+background-color:#6495ED;
+}
+
+#login{
+margin-left:425px;
+}
+
+#signin{
+margin-left:425px;
+}
+
+.esquecisenha{
+color:#6495ED;
+}
+
+.img-fluid{
+max-width:400px;
+max-height:400px;
+width:auto;
+height:auto;
+
+}
+
+a,
+a:hover,
+a:focus,
+a:active,
+a.active {
+  color:#6495ED;
+}
+
+#imagemlivro{
+max-height:100px;
+max-width:100px;
+height:auto;
+width:auto;
+}
+
+
+
+.livroDescricao{
+
+}
+
+.box1{
+text-align:center;
+word-wrap: break-word;
+}
+
+
+
+fa-3x{
+background-color:#6495ED;
+}
+
+caption{
+background-color:#6495ED;
+}
+
+
+elemento {
+
+}
+#portfolio .portfolio-item .portfolio-link .caption {
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+    transition: all ease .5s;
+    opacity: 0;
+    background:#6495ED;
+
+}
+#portfolio * {
+
+    z-index: 2;
+
+}
+*, *::after, *::before {
+
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+
+}
+#portfolio .portfolio-item .portfolio-link {
+
+    cursor: pointer;
+
+}
+body {
+
+    font-family: Lato,'Helvetica Neue',Helvetica,Arial,sans-serif;
+    
+
+}
+body {
+
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #292b2c;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-size:cover;
+
+}
+html {
+
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+
+}
+
+.container{
+background: url('assets/img/babelazul.png'); 
+}
+
+header.masthead{
+background:url('/assets/img/babelazul.png')
+}
+
+h2.text-center2{
+color:white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-align:center;
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+
+

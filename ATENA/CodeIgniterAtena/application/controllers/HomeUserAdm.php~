@@ -1,0 +1,42 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class HomeUser extends CI_Controller {
+	private $url = array();
+	public function __construct() {
+		parent::__construct();
+		$this->url['url'] = base_url();
+		$this->load->library('parser');
+		$this->load->library('session');
+		if(!$this->session->userdata('logado')){
+				redirect("welcome/entrar");
+		}
+	}
+
+	public function index()
+	{
+			//$this->db->where('idUsuario',$idUsuario);
+			//$dadosUser['dados'] = $this->db->get('usuario')->result();
+		$this->load->view('User/homeUser'/*,$dadosUser*/);
+	}
+	public function livrosUser(){
+		$this->parser->parse('User/livrosUser.php',$this->url);
+	}
+	
+	public function homeUser(){
+		$this->parser->parse('User/homeUser.php',$this->url);
+	}
+	
+	public function textosUser(){
+		$this->parser->parse('User/textosUser.php',$this->url);
+	}
+	
+	public function dica(){
+		$this->parser->parse('enviardica.php',$this->url);
+	}
+
+	public function logout()
+	{
+		redirect(base_url("Login/logout"));
+	}
+}
