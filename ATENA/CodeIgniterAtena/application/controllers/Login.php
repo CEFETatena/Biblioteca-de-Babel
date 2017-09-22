@@ -16,17 +16,17 @@ class Login extends CI_Controller {
 	}
 
   public function efetuar_login(){
-    $this->load->model("Usuarios");
-    $users= $this->Usuarios->pegaUsuarios();
+    $this->load->model("Usuarios");    
     $usuario = $this->input->post('txtUsername');
     $senha = sha1($this->input->post('txtSenha'));
-    $ok=false;
+    $user= $this->Usuarios->pegaUsuario($usuario);
+	 /*$ok=false;
     foreach ($users as $u) {
              if(($usuario == $u["nomeDeUsuario"] || $usuario==$u["email"]) && $senha == $u["senha"]){
               $ok =true;
             }
-       }
-    if($ok==true){
+    }*/
+    if($user['nomeDeUsuario'] == $nome || $user['email'] == $nome && $senha == $user['senha'] ){
     	$array = array("logado"=>TRUE);
     	$user = $this->Usuarios->pegaUsuario($usuario);
     	$array = array_merge($array,$user[0]);
