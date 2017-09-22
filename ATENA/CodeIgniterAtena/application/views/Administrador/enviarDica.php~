@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Alunos" >
+    <meta name="author" content="Brian" >
 
     <title>ATENA</title>
 
@@ -47,10 +47,21 @@
             Menu <i class="fa fa-bars"></i>
         </button>
         <div class="container">
+        		<a class="navbar-brand" href="{url}homeAdm"><img src="{url}assets/img/logoadm.png" width="60px" height="60px"></a>
 				<a class="navbar-brand" href="livroAdm">LIVROS</a>
             <a class="navbar-brand" href="textoAdm">TEXTOS</a>
             <a class="navbar-brand" href="dicaAdm">DICAS</a>
-            <a class="navbar-brand" href="">GERENCIAR</a>
+            <li class="dropdown">
+        					<?php echo anchor(base_url("#"),"GERENCIAR",
+        						array("class" => "dropdown-toggle","data-toggle"=>"dropdown")); ?>
+        					<ul class="dropdown-menu">
+          					<li><?php echo anchor(base_url("homeAdm/gerenciarLivros"),"LIVROS") ?></li>
+          					<li><?php echo anchor(base_url("homeAdm/gerenciarDicas"),"DICAS") ?></li>
+          					<li><?php echo anchor(base_url("homeAdm/gerenciarUsuarios"),"USUÁRIOS") ?></li>
+          					
+        					</ul>
+
+     			</li>
             
             <div class="collapse navbar-collapse" id="navbarExample">
                 <ul class="navbar-nav ml-auto">
@@ -124,19 +135,19 @@
     </section>
 
  <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/tether/tether.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="{url}assets/vendor/jquery/jquery.min.js"></script>
+    <script src="{url}assets/vendor/tether/tether.min.js"></script>
+    <script src="{url}assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{url}assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+    <script src="{url}assets/js/jqBootstrapValidation.js"></script>
+    <script src="{url}assets/js/contact_me.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="js/freelancer.min.js"></script>
+    <script src="{url}assets/js/freelancer.min.js"></script>
 
 </body>
 

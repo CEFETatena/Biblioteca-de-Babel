@@ -30,7 +30,11 @@ class Welcome extends CI_Controller {
 	}
 	
 	public function dicas(){
-		$this->parser->parse('dicas.php',$this->url);
+		$user = $this->session->get_userdata();
+		$user['url'] = base_url();
+		$this->load->model('Conteudo');
+		$user["dicas"] = $this->Conteudo->pegaDicas();
+		$this->parser->parse('dicas.php',$user);
 	}
 
 	public function entrar(){

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Alunos" >
+    <meta name="author" content="Brian" >
 
     <title>ATENA</title>
 
@@ -47,10 +47,21 @@
             Menu <i class="fa fa-bars"></i>
         </button>
         <div class="container">
+      		<a class="navbar-brand" href="{url}homeAdm"><img src="{url}assets/img/logoadm.png" width="60px" height="60px"></a>
             <a class="navbar-brand" href="livroAdm">LIVROS</a>
             <a class="navbar-brand" href="textoAdm">TEXTOS</a>
             <a class="navbar-brand" href="dicaAdm">DICAS</a>
-            <a class="navbar-brand" href="">GERENCIAR</a>
+             <ul class="navbar-nav ml-auto">
+            	<li class="dropdown">
+        						<?php echo anchor(base_url("#"),"GERENCIAR",
+        							array("class" => "dropdown-toggle","data-toggle"=>"dropdown")); ?>
+        						<ul class="dropdown-menu">
+          						<li><?php echo anchor(base_url("homeAdm/gerenciarLivros"),"LIVROS") ?></li>
+          						<li><?php echo anchor(base_url("homeAdm/gerenciarDicas"),"DICAS") ?></li>
+          						<li><?php echo anchor(base_url("homeAdm/gerenciarUsuarios"),"USUÁRIOS") ?></li>
+          					</ul>
+          		</li> 
+          	</ul> 
 
            <div class="collapse navbar-collapse" id="navbarExample">
                 <ul class="navbar-nav ml-auto">

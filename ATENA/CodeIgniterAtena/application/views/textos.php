@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Alunos" >
+    <meta name="author" content="Brian" >
 
     <title>ATENA</title>
 
@@ -75,7 +75,7 @@
     <br>
     <section id="portfolio">
         <div class="container">
-            <h2 class="text-center">DICAS</h2>
+            <h2 class="text-center">TEXTOS</h2>
             <hr class="star-primary">
             <div class="dicas">
            	 <?php 

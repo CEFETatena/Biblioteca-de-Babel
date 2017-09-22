@@ -38,6 +38,7 @@ class Welcome extends CI_Controller {
 	}
 
 	public function entrar(){
+		
 		$this->session->sess_destroy();
 		$this->parser->parse('entrar.php',$this->url);
 	}

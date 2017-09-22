@@ -79,13 +79,14 @@
             <hr class="star-primary">
             <div class="dicas">
            	 <?php 
-					foreach($dicas as $dica){					
-						if($dica->permissao == 1){ 	
+					foreach($textos as $texto){					
+						
 							echo "<hr><div class='box1'>" .									 
-							  			"<b>".$dica->titulo ."</b><br>" . 							  	
-								  		$dica->descricao . "<br>" .
-							  		"</div>";
-						}
+								  		"<b>" .$texto->titulo ."</b><br>" .
+								  		"<b>" .$texto->autor ."</b><br>" . 							  	
+							  			$texto->texto . "<br>" .
+								  	"</div>";
+						  
 					}           
 					?>       
             </div>

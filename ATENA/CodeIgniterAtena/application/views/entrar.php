@@ -36,6 +36,19 @@
         }
     }
     </style>
+    <script src="{url}assets/vendor/jquery/jquery.min.js"></script>
+    <script src="{url}assets/vendor/tether/tether.min.js"></script>
+    <script src="{url}assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{url}assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="{url}assets/js/jqBootstrapValidation.js"></script>
+    <script src="{url}assets/js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{url}assets/js/freelancer.min.js"></script>
 
 </head>
 
@@ -57,7 +70,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="entrar">Entrar</a>
-
+								
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="cadastrar">Cadastrar</a>
@@ -72,36 +85,32 @@
     <!-- Login Section -->
      <section id="contact">
       <div class="container">
-        <div class="row control-group">
+        <div class="row">
           <div class="col-lg-8 text-center offset-lg-2">
             <br><br><h2>Entrar</h2>
             <hr class="star-primary">
           </div>
-          
-          <form name="login" id="login"  method="POST" action="../Login/efetuar_login" enctype="multipart/form-data" class="form">
-          	<div class="col-lg-4 text-center offset-lg-4">
-          
+          	<div class="col-lg-8 text-center offset-lg-2">
+          <form   method="POST" action="../Login/efetuar_login"  >
+          	<div class="col-lg-8 text-center offset-lg-2">
           <input type="nomeUsuario" class="form-control text-center" placeholder="Inserir nome de Usuário ou E-mail" id="txtUsername" name="txtUsername" required="" data-validation-required-message="Insira nome de usuário valido">
    		<p class="help-block text-danger"></p>      
-          <br></div>
-          <div class="col-lg-4 text-center offset-lg-4">
+        
           
           <input type="password" class="form-control text-center" placeholder="Inserir Senha" id="txtSenha" name="txtSenha" required="" data-validation-required-message="Please enter your password address.">
 			<p class="help-block text-danger"></p>           
-          <br></div>
-          <div class="col-lg-4 text-center offset-lg-4">
+         
 					<a class="esquecisenha" href="#">Esqueci minha senha</a>
-					<br>
-		        </div>
-              </div>
-          <div class="col-lg-4 text-center offset-lg-4">
+						<br>
+            
 					  <br>
                 <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
-				</div>    
+				    
           
           
         </div>
        	</form>
+       	</div>
         
         </div>
       </div>
@@ -137,19 +146,7 @@
 
 
     <!-- Bootstrap core JavaScript -->
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/tether/tether.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="assets/js/jqBootstrapValidation.js"></script>
-    <script src="assets/js/contact_me.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="assets/js/freelancer.min.js"></script>
 
 </body>
 

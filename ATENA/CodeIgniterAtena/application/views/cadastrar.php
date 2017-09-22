@@ -36,6 +36,20 @@
         }
     }
     </style>
+    
+    <script src="{url}assets/vendor/jquery/jquery.min.js"></script>
+    <script src="{url}assets/vendor/tether/tether.min.js"></script>
+    <script src="{url}assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{url}assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="{url}assets/js/jqBootstrapValidation.js"></script>
+    <script src="{url}assets/js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{url}assets/js/freelancer.min.js"></script>
 
 </head>
 
@@ -70,66 +84,95 @@
 
     <!-- SignIn Section -->
      <section id="contact">
-      <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
             <br><br><h2>Cadastrar</h2>
             <hr class="star-primary">
           </div>
-        </div>
-        <div class="container">
-        <div class="row control-group">
+		</div>       
+       <div class="row">
+       <div class="col-lg-8 text-center offset-lg-1">
         <form name="signin" id="signin"  method="POST" action="../welcome/cadastrarUsuario" enctype="multipart/form-data">
-          <div class="col-lg-4 text-center offset-lg-4">
-          
+          <div class="col-lg-9 text-center">
+         
           <input type="nome" class="form-control text-center" placeholder="Inserir Nome" id="txtName" name="txtName" required="" data-validation-required-message="Insira o nome">
-                  <br></div>
+                  <br>
                   
-          <div class="col-lg-4 text-center offset-lg-4">
           
            <input type="nomeUsuario" class="form-control text-center" placeholder="Inserir Nome de Usuário" id="txtUsername" name="txtUsername" required="" data-validation-required-message="Insira nome de usuário valido">
-                  <br></div>
+                  <br>
                   
-          <div class="col-lg-4 text-center offset-lg-4">
+          
           
           <input type="email" class="form-control text-center" placeholder="Inserir Email" id="txtEmail" name="txtEmail" required="" data-validation-required-message="Insira email valido.">
-                         <br></div>
+                         <br>
                   
-                  <div class="col-lg-4 text-center offset-lg-4">
+                  
           
          <input type="password" class="form-control text-center" placeholder="Inserir Senha" id="txtSenha" name="txtSenha" required="" data-validation-required-message="Insira sua senha">
-                          <br></div>
+                          <br>
                   
-                  <div class="col-lg-4 text-center offset-lg-4">
+                  
           
-         <input type="password" class="form-control" placeholder="Confirmar Senha" id="txtConfirma" name="txtConfirma" required="" data-validation-required-message="Confirme sua senha">
-                          <br></div>
+         <input type="password" class="form-control text-center" placeholder="Confirmar Senha" id="txtConfirma" name="txtConfirma" required="" data-validation-required-message="Confirme sua senha">
+                          <br>
                   
-          <div class="col-lg-4 text-center offset-lg-4">
+          
 					<a class="esquecisenha" href="#">Esqueci minha senha</a>
 					<br>
-		        </div>
-              </div>
-          <div class="col-lg-4 text-center offset-lg-4">
+		       
+          
 					  <br>
                 <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
-				</div>     
+                 </div>
+				     
+          
+          
+        </form>
+
+</div>
+</div>
+
+           
+
+             
+    </section>
+    
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 text-center offset-lg-2">
+            <br><br><h2>Cadastrar</h2>
+            <hr class="star-primary">
+          </div>
+          	<div class="col-lg-8 text-center offset-lg-2">
+          <form name="signin" id="signin"  method="POST" action="../welcome/cadastrarUsuario" enctype="multipart/form-data">
+          	<div class="col-lg-8 text-center offset-lg-2">
+          <input type="nome" class="form-control text-center" placeholder="Inserir Nome" id="txtName" name="txtName" required="" data-validation-required-message="Insira o nome">
+          
+         <input type="nomeUsuario" class="form-control text-center" placeholder="Inserir Nome de Usuário" id="txtUsername" name="txtUsername" required="" data-validation-required-message="Insira nome de usuário valido">
+                      
+          <input type="email" class="form-control text-center" placeholder="Inserir Email" id="txtEmail" name="txtEmail" required="" data-validation-required-message="Insira email valido.">
+                         
+             <input type="password" class="form-control text-center" placeholder="Inserir Senha" id="txtSenha" name="txtSenha" required="" data-validation-required-message="Insira sua senha">
+                     
+              <input type="password" class="form-control text-center" placeholder="Confirmar Senha" id="txtConfirma" name="txtConfirma" required="" data-validation-required-message="Confirme sua senha">
+                                        
+					<a class="esquecisenha" href="#">Esqueci minha senha</a>
+					<br>
+            
+					  <br>
+                <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+				    
           
           
         </div>
-
-
-
-            <!-- To configure the contact form email address, go to mail/contact_me.php
-            and update the email address in the PHP file on line 19. -->
-            <!-- The form should work on most web servers, but if the form is not
-            working you may need to configure your web server differently. -->
-				<form name="signin" id="signin"  method="POST" action="../welcome/cadastrarUsuario" enctype="multipart/form-data">
-
-
-
-              
+       	</form>
+       	</div>
+        
         </div>
+      </div>
+    </section>
     </section>
 	<br>
 
@@ -163,19 +206,7 @@
 
 
     <!-- Bootstrap core JavaScript -->
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/tether/tether.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="assets/js/jqBootstrapValidation.js"></script>
-    <script src="assets/js/contact_me.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="assets/js/freelancer.min.js"></script>
+   
 
 </body>
 
