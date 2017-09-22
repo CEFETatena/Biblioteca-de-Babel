@@ -55,6 +55,7 @@ class Welcome extends CI_Controller {
 			$users= $this->Usuarios->pegaUsuarios();
 
 			$dados['nome'] = $this->input->post('txtName');
+			$dados['sobrenome'] = $this->input->post('txtSobrenome');
 			$dados['nomeDeUsuario'] = $this->input->post('txtUsername');
 			$dados['email'] = $this->input->post('txtEmail');
 			$dados['senha'] = sha1($this->input->post('txtSenha'));

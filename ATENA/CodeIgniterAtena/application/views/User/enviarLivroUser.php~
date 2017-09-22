@@ -86,7 +86,7 @@
 							<td><input name="txtAutor" type="text" size="33" class="form-control" maxlength="1000"></td>
 						</tr>
 						<tr> 
-							<td><label>DESCRIÇÃO : "" </label>
+							<td><label>DESCRIÇÃO :  </label>
 							</td>
 							<td><textarea name="txtDescricao" cols="33" rows="7" class="form-control"></textarea>
 							</td>

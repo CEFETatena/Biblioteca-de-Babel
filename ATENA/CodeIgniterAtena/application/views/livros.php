@@ -76,6 +76,7 @@
     <section id="portfolio">
         <div class="col-lg-8 offset-lg-2">
             <h2 class="text-center">LIVROS</h2>
+            <hr class="star-primary">
             <hr cforeachlass="star-primary">
              <div class='box1'>           
             <?php 
@@ -84,7 +85,8 @@
 							echo "<hr><img src='{url}img/publicacoes/" . $livro->idLivro. "." .$livro->foto."' width='100''>"."<br>";
 							echo "<br><div class='livroTitulo'><b>" . $livro->titulo . "</b></div>";
 							echo "<div class='livroAutor'>" . $livro->autor ."</div>";
-				   		echo "<div class='livroDescricao'>" . $livro->descricao ."</div>";
+				   		echo "<div class='livroDescricao'>" . $livro->descricao ."</div>";			   		
+				   		
 				   	}
 					}            
 						?>
@@ -95,7 +97,9 @@
     </section>
 
     <!-- About Section -->
+    
     <section class="success" id="about">
+		<br>        
         <div class="container">
             <h2 class="text-center">SOBRE</h2>
             <hr class="star-light">

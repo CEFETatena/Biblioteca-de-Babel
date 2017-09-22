@@ -48,25 +48,13 @@
         </button>
         <div class="container">
         		<a class="navbar-brand" href="{url}homeAdm"><img src="{url}assets/img/logoadm.png" width="60px" height="60px"></a>
-				<a class="navbar-brand" href="livroAdm">LIVROS</a>
-            <a class="navbar-brand" href="textoAdm">TEXTOS</a>
-            <a class="navbar-brand" href="dicaAdm">DICAS</a>
-             <ul class="navbar-nav ml-auto">
-            	<li class="dropdown">
-        						<?php echo anchor(base_url("#"),"GERENCIAR",
-        							array("class" => "dropdown-toggle","data-toggle"=>"dropdown")); ?>
-        						<ul class="dropdown-menu">
-          						<li><?php echo anchor(base_url("homeAdm/gerenciarLivros"),"LIVROS") ?></li>
-          						<li><?php echo anchor(base_url("homeAdm/gerenciarDicas"),"DICAS") ?></li>
-          						<li><?php echo anchor(base_url("homeAdm/gerenciarUsuarios"),"USUÁRIOS") ?></li>
-          					</ul>
-          		</li> 
-          	</ul> 
-            
+				<h3 class="name">ADMINISTRAÇÃO</h3>        		
             <div class="collapse navbar-collapse" id="navbarExample">
+
                 <ul class="navbar-nav ml-auto">
+                	
                    <li class="dropdown">
-        					<?php echo anchor(base_url("homeAdm/dicaAdm"),"ADMINISTRADOR",
+        					<?php echo anchor(base_url("#"),"ADMINISTRADOR",
         						array("class" => "dropdown-toggle","data-toggle"=>"dropdown")); ?>
         					<ul class="dropdown-menu">
           					<li><?php echo anchor(base_url("homeUser"),"Sair") ?></li>
@@ -85,6 +73,7 @@
     <br>
     <section id="portfolio">
         <div class="container">
+        <br>
             <h2 class="text-center">PUBLICAR DICA</h2>
             <hr class="star-primary">
             
@@ -93,12 +82,12 @@
         			<form name="nomedoform" action="publicarDica" method="POST" >
 					<table>
 					<tr> 
-						<td><label>TÍTULO: </label></td>
+						<td><label><b>TÍTULO:</b> </label></td>
 						<br>
 						<td><input name="txtTitulo" type="text" size="33" maxlength="1000"></td>
 					</tr>
 					<tr> 
-						<td><label>DESCRIÇÃO : </label>
+						<td><label><b>DESCRIÇÃO :</b> </label>
 						</td>
 						<td><textarea name="txtDescricao" cols="33"rows="7"></textarea>
 						</td>

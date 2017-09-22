@@ -68,6 +68,8 @@
     <br>
     <section id="portfolio">
         <div class="container">
+        <h2 class="text-center">ENVIAR DICA</h2>
+            <hr class="star-primary">  
         		<hr>         
 				<div class="col-lg-6 offset-lg-3">
         			<form name="nomedoform" action="cadastrarDica" method="POST" >

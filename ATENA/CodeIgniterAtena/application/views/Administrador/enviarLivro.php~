@@ -47,19 +47,18 @@
             Menu <i class="fa fa-bars"></i>
         </button>
         <div class="container">
-      		<a class="navbar-brand" href="{url}homeAdm"><img src="{url}assets/img/logoadm.png" width="60px" height="60px"></a>
-            <a class="navbar-brand" href="livroAdm">LIVROS</a>
-            <a class="navbar-brand" href="textoAdm">TEXTOS</a>
-            <a class="navbar-brand" href="dicaAdm">DICAS</a>
-            <a class="navbar-brand" href="">GERENCIAR</a>
+        		<a class="navbar-brand" href="{url}homeAdm"><img src="{url}assets/img/logoadm.png" width="60px" height="60px"></a>
+				<h3 class="name">ADMINISTRAÇÃO</h3>        		
+            <div class="collapse navbar-collapse" id="navbarExample">
 
-           <div class="collapse navbar-collapse" id="navbarExample">
                 <ul class="navbar-nav ml-auto">
+                	
                    <li class="dropdown">
-        					<?php echo anchor(base_url("homeAdm/livroAdm"),"ADMINISTRADOR",
+        					<?php echo anchor(base_url("#"),"ADMINISTRADOR",
         						array("class" => "dropdown-toggle","data-toggle"=>"dropdown")); ?>
         					<ul class="dropdown-menu">
-          					<li><?php echo anchor(base_url("homeUser"),"Sair") ?></li>          					
+          					<li><?php echo anchor(base_url("homeUser"),"Sair") ?></li>
+          					
         					</ul>
 
      					 </li>
@@ -75,7 +74,8 @@
     <br>
     <section id="portfolio">
         <div class="container">
-            <h2 class="text-center">PUBLICAR LIVRO</h2>
+        
+          <br><h2 class="text-center">PUBLICAR LIVRO</h2>
             <hr class="star-primary">
             
             <hr>
@@ -83,23 +83,23 @@
            		<form name="enviarLivro" id="envlivro" action="../homeAdm/publicarLivro" method="POST" enctype="multipart/form-data" >
 					<table>
 						<tr> 
-							<td><label>TÍTULO DO LIVRO : </label></td>
+							<td><label><b>TÍTULO :</b> </label></td>
 							<br>
 							<td><input name="txtNome" type="text" size="33" maxlength="1000"></td>
 						</tr>
 						<tr> 
-							<td><label>AUTOR : </label></td>
+							<td><label><b>AUTOR :</b> </label></td>
 							<td><input name="txtAutor" type="text" size="33" maxlength="1000"></td>
 						</tr>
 						<tr> 
-							<td><label>DESCRIÇÃO : </label>
+							<td><label><b>DESCRIÇÃO :</b> </label>
 							</td>
 							<td><textarea name="txtDescricao" cols="33" rows="7"></textarea>
 							</td>
 						</tr>
                         <table>
 						<tr>
-							<label for="imagem">IMAGEM : </label><br>
+							<label for="imagem"><b>IMAGEM :</b> </label><br>
 							<input name="imagem" type="file"/>
 							<hr>						
 						</tr>

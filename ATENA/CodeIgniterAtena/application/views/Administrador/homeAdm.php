@@ -47,27 +47,12 @@
             Menu <i class="fa fa-bars"></i>
         </button>
         <div class="container">
-        		<a class="navbar-brand" href=""><img src="assets/img/logoadm.png" width="60px" height="60px"></a>
-            <a class="navbar-brand" href="homeAdm/livroAdm">LIVROS</a>
-            <a class="navbar-brand" href="homeAdm/textoAdm">TEXTOS</a>
-            <a class="navbar-brand" href="homeAdm/dicaAdm">DICAS</a>
-            <ul class="navbar-nav ml-auto">
-            	<li class="dropdown">
-        						<?php echo anchor(base_url("#"),"GERENCIAR",
-        							array("class" => "dropdown-toggle","data-toggle"=>"dropdown")); ?>
-        						<ul class="dropdown-menu">
-          						<li><?php echo anchor(base_url("homeAdm/gerenciarLivros"),"LIVROS") ?></li>
-          						<li><?php echo anchor(base_url("homeAdm/gerenciarDicas"),"DICAS") ?></li>
-          						<li><?php echo anchor(base_url("homeAdm/gerenciarUsuarios"),"USUÁRIOS") ?></li>
-          					</ul>
-          		</li> 
-          	</ul>           
-   
-
+        		<a class="navbar-brand" href="homeAdm"><img src="assets/img/logoadm.png" width="60px" height="60px"></a>
+				<h3 class="name">ADMINISTRAÇÃO</h3>        		
             <div class="collapse navbar-collapse" id="navbarExample">
 
                 <ul class="navbar-nav ml-auto">
-
+                	
                    <li class="dropdown">
         					<?php echo anchor(base_url("#"),"ADMINISTRADOR",
         						array("class" => "dropdown-toggle","data-toggle"=>"dropdown")); ?>
@@ -88,10 +73,15 @@
         <div class="container">
             <img class="img-fluid" id="img1" src="assets/img/logoadm.png" alt="">
             <div class="intro-text">
-                <span class="name">BIBLIOTECA DE BABEL</span><br>
-                <h3 class="name">ADMINISTRAÇÃO</h3>
-                
+                <span class="name">BIBLIOTECA DE BABEL</span><br>                
             </div>
+            <?php echo anchor(base_url("homeAdm/livroAdm"),"PUBLICAR LIVRO", array("class" => "btn btn-mediun btn-primary"));?>
+            <?php echo anchor(base_url("homeAdm/textoAdm"),"PUBLICAR TEXTO", array("class" => "btn btn-mediun btn-primary"));?>
+            <?php echo anchor(base_url("homeAdm/dicaAdm"),"PUBLICAR DICA", array("class" => "btn btn-mediun btn-primary"));?>
+            <hr>
+            <?php echo anchor(base_url("homeAdm/gerenciarLivros"),"GERENCIAR LIVROS",array("class" => "btn btn-mediun btn-warning"))?>
+            <?php echo anchor(base_url("homeAdm/gerenciarDicas"),"GERENCIAR DICAS",array("class" => "btn btn-mediun btn-warning"))?>
+            <?php echo anchor(base_url("homeAdm/gerenciaruUsuarios"),"GERENCIAR USUÁRIOS",array("class" => "btn btn-mediun btn-warning"))?>
         </div>
     </header>
 
@@ -99,8 +89,7 @@
 
 
     </section>
-
-
+  
    
 
     <!-- Bootstrap core JavaScript -->
@@ -110,10 +99,11 @@
 
     <!-- Plugin JavaScript -->
     <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-
+    
     <!-- Contact Form JavaScript -->
     <script src="assets/js/jqBootstrapValidation.js"></script>
     <script src="assets/js/contact_me.js"></script>
+    <script src="assets/js/janelaModal.js"></script>
 
     <!-- Custom scripts for this template -->
     <script src="assets/js/freelancer.min.js"></script>

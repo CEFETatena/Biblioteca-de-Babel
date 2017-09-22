@@ -36,7 +36,7 @@
 
 </head>
 
-<body class="index" id="page-top" background="assets/img/babelazul.png">
+<body class="index" id="page-top" background="assets/img/babelcinza.png">
 
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-toggleable-md navbar-light" id="mainNav">
@@ -72,10 +72,8 @@
     <header class="masthead">
         <div class="container">
             
-            <div class="col-lg-6 intro-text" style="float:right">
-            	<br>
-            	<br>
-            	<br>
+            <div class="col-lg-6 intro-text" style="float:right; padding-top:10%">
+            
                 <span class="name">BIBLIOTECA DE BABEL</span>
                 <img class="img-fluid" id="img2" src="{url}assets/img/estrela2.png" alt="">
                 

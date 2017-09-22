@@ -75,12 +75,12 @@
         			<form name="nomedoform" action="cadastrarDica" method="POST" >
 					<table>
 					<tr> 
-						<td><label>TÍTULO: </label></td>
+						<td><label><b>TÍTULO: </b></label></td>
 						<br>
 						<td><input name="txtTitulo" type="text" size="33" maxlength="1000"></td>
 					</tr>
 					<tr> 
-						<td><label>DESCRIÇÃO : </label>
+						<td><label><b>DESCRIÇÃO : </b></label>
 						</td>
 						<td><textarea name="txtDescricao" cols="33"rows="7"></textarea>
 						</td>

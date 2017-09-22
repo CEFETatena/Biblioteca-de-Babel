@@ -48,28 +48,17 @@
         </button>
         <div class="container">
         		<a class="navbar-brand" href="{url}homeAdm"><img src="{url}assets/img/logoadm.png" width="60px" height="60px"></a>
-            <a class="navbar-brand" href="livroAdm">LIVROS</a>
-            <a class="navbar-brand" href="textoAdm">TEXTOS</a>
-            <a class="navbar-brand" href="dicaAdm">DICAS</a>
-             <ul class="navbar-nav ml-auto">
-            	<li class="dropdown">
-        						<?php echo anchor(base_url("#"),"GERENCIAR",
-        							array("class" => "dropdown-toggle","data-toggle"=>"dropdown")); ?>
-        						<ul class="dropdown-menu">
-          						<li><?php echo anchor(base_url("homeAdm/gerenciarLivros"),"LIVROS") ?></li>
-          						<li><?php echo anchor(base_url("homeAdm/gerenciarDicas"),"DICAS") ?></li>
-          						<li><?php echo anchor(base_url("homeAdm/gerenciarUsuarios"),"USUÁRIOS") ?></li>
-          					</ul>
-          		</li> 
-          	</ul> 
+				<h3 class="name">ADMINISTRAÇÃO</h3>        		
+            <div class="collapse navbar-collapse" id="navbarExample">
 
-             <div class="collapse navbar-collapse" id="navbarExample">
                 <ul class="navbar-nav ml-auto">
+                	
                    <li class="dropdown">
         					<?php echo anchor(base_url("#"),"ADMINISTRADOR",
         						array("class" => "dropdown-toggle","data-toggle"=>"dropdown")); ?>
         					<ul class="dropdown-menu">
-          					<li><?php echo anchor(base_url("homeUser"),"Sair") ?></li>          					
+          					<li><?php echo anchor(base_url("homeUser"),"Sair") ?></li>
+          					
         					</ul>
 
      					 </li>
@@ -83,6 +72,7 @@
     <!-- Portfolio Grid Section -->
     <br>
     <section id="portfolio">
+    <br>
         <div class="container">
             <h2 class="text-center">PUBLICAR TEXTO</h2>
             <hr class="star-primary">
@@ -92,16 +82,16 @@
            		<form name="nomedoform" action="publicarTexto" method="POST" >
 					<table>
 					<tr> 
-						<td><label>TÍTULO DO TEXTO : </label></td>
+						<td><label><b>TÍTULO DO TEXTO :</b> </label></td>
 						<br>
 						<td><input name="txtTitulo" type="text" size="33" maxlength="1000"></td>
 					</tr>
 					<tr> 
-						<td><label>AUTOR DO TEXTO : </label></td>
+						<td><label><b>AUTOR DO TEXTO :</b> </label></td>
 						<td><input name="txtAutor" type="text" size="33" maxlength="1000"></td>
 					</tr>
 					<tr> 
-						<td><label>TEXTO : </label>
+						<td><label><b>TEXTO :</b> </label>
 						</td>
 						<td><textarea name="txtTexto" cols="33" rows="7"></textarea>
 						</td>

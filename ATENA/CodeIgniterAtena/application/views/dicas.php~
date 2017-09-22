@@ -80,7 +80,7 @@
             <div class="dicas">
            	 <?php 
 					foreach($dicas as $dica){					
-						if($dicas->permissao == 1){ 	
+						if($dica->permissao == 1){ 	
 							echo "<hr><div class='box1'>" .									 
 							  			"<b>".$dica->titulo ."</b><br>" . 							  	
 								  		$dica->descricao . "<br>" .
@@ -98,7 +98,9 @@
 
 
     <!-- About Section -->
+    
     <section class="success" id="about">
+	<br>
         <div class="container">
             <h2 class="text-center">SOBRE</h2>
             <hr class="star-light">

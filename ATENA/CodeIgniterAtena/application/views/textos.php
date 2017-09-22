@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Brian" >
+    <meta name="author" content="Alunos" >
 
     <title>ATENA</title>
 
@@ -49,7 +49,7 @@
        <div class="container">
             <a class="navbar-brand" href="../"><img src="../assets/img/exemplo3.png" width="60px" height="60px"></a>
             <a class="navbar-brand" href="livros">LIVROS</a>
-				<a class="navbar-brand" href="dicas">DICAS</a>
+                <a class="navbar-brand" href="dicas">DICAS</a>
             <a class="navbar-brand" href="textos">TEXTOS</a>
             <a class="navbar-brand" href="#about">SOBRE</a>
 
@@ -78,24 +78,24 @@
             <h2 class="text-center">TEXTOS</h2>
             <hr class="star-primary">
             <div class="dicas">
-           	 <?php 
-					foreach($textos as $texto){					
-						
-							echo "<hr><div class='box1'>" .									 
-								  		"<b>" .$texto->titulo ."</b><br>" .
-								  		"<b>" .$texto->autor ."</b><br>" . 							  	
-							  			$texto->texto . "<br>" .
-								  	"</div>";
-						  
-					}           
-					?>       
+             <?php
+                    foreach($textos as $texto){
+
+                            echo "<hr><div class='box1'>" .
+                                        "<b>" .$texto->titulo ."</b><br>" .
+                                        "<b>" .$texto->autor ."</b><br>" .
+                                        $texto->texto . "<br>" .
+                                    "</div>";
+
+                    }
+                    ?>
             </div>
 
 
 
      </div>
 
-     
+
 
 
     <!-- About Section -->

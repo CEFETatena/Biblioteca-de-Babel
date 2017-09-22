@@ -52,12 +52,13 @@ uthor" content="Alunos" >
             <a class="navbar-brand" href="homeUser/livrosUser">LIVROS</a>
             <a class="navbar-brand" href="homeUser/dicasUser">DICAS</a>
             <a class="navbar-brand" href="homeUser/textosUser">TEXTOS</a>
-            <a class="navbar-brand" href="#about">SOBRE</a>          
+            <a class="navbar-brand" href="#about">SOBRE</a>
+            
 
             <div class="collapse navbar-collapse" id="navbarExample">
         			<ul class="navbar-nav ml-auto">
                	<li class="dropdown">
-        					<?php echo anchor(base_url("#"),$usuario["nomeDeUsuario"],
+        					<?php echo anchor(base_url("produtos"),$usuario["nomeDeUsuario"],
         						array("class" => "dropdown-toggle","data-toggle"=>"dropdown")); ?>
         					<ul class="dropdown-menu">
         						<?php if($usuario["perfil"] == 1){
@@ -83,7 +84,7 @@ uthor" content="Alunos" >
             <div class="col-lg-6 intro-text" style="float:right; padding-top:10%">
             
                 <span class="name">BIBLIOTECA DE BABEL</span>
-                <img class="img-fluid" id="img2" src="assets/img/estrela2.png" alt="">
+                <img class="img-fluid" id="img2" src="{url}assets/img/estrela2.png" alt="">
                 
             </div>
         </div>
@@ -112,6 +113,9 @@ uthor" content="Alunos" >
         </div>
     </section>
 
+
+    </section>
+
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
     <!-- INí
     <div class="scroll-top hidden-lg-up">
@@ -120,8 +124,6 @@ uthor" content="Alunos" >
         </a>
     </div>
 
-
-    <!-- Bootstrap core JavaScript -->
     <!-- Bootstrap core JavaScript -->
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/tether/tether.min.js"></script>
