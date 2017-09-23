@@ -62,7 +62,7 @@ class HomeAdm extends CI_Controller {
 					<html> <body>
 					<script>
 						alert("PUBLICAÇÃO FEITA!");
-						window.location = ("'.base_url().'homeAdm/livroAdm");
+						window.location = ("'.base_url().'homeAdm");
 					</script>
 					</body> </html>';
 		}else {
@@ -86,7 +86,7 @@ class HomeAdm extends CI_Controller {
 					<html> <body>
 					<script>
 						alert("PUBLICAÇÃO FEITA!");
-						window.location = ("'.base_url().'homeAdm/textoAdm");
+						window.location = ("'.base_url().'homeAdm");
 					</script>
 					</body> </html>';
 		
@@ -110,7 +110,7 @@ class HomeAdm extends CI_Controller {
 					<html> <body>
 					<script>
 						alert("PUBLICAÇÃO FEITA!");
-						window.location = ("'.base_url().'homeAdm/dicaAdm");
+						window.location = ("'.base_url().'homeAdm");
 					</script>
 					</body> </html>';
 		}else{

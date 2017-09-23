@@ -11,6 +11,9 @@ class HomeAdm extends CI_Controller {
 		if(!$this->session->userdata('logado')){
 				redirect("welcome/entrar");
 		}
+		if($this->session->userdata('perfil') == 0){
+				redirect("homeUser");
+		}
 	}
 //CARREGA AS VIEWS
 	public function index()
@@ -83,7 +86,7 @@ class HomeAdm extends CI_Controller {
 					<html> <body>
 					<script>
 						alert("PUBLICAÇÃO FEITA!");
-						window.location = ("'.base_url().'homeAdm/textoAdm");
+						window.location = ("'.base_url().'homeAdm");
 					</script>
 					</body> </html>';
 		
@@ -107,7 +110,7 @@ class HomeAdm extends CI_Controller {
 					<html> <body>
 					<script>
 						alert("PUBLICAÇÃO FEITA!");
-						window.location = ("'.base_url().'homeAdm/dicaAdm");
+						window.location = ("'.base_url().'homeAdm");
 					</script>
 					</body> </html>';
 		}else{

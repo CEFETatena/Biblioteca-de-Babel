@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Alunos" >
+    <meta name="author" content="Brian" >
 
     <title>ATENA</title>
 
@@ -47,13 +47,17 @@
             Menu <i class="fa fa-bars"></i>
         </button>
        <div class="container">
-				<h2 class="text-center2">BIBLIOTECA DE BABEL</h2>            
-				<div class="collapse navbar-collapse" id="navbarExample">
-        			<ul class="navbar-nav ml-auto">
-               	<li class="dropdown">
-               	<a href="#" class="dropdown-toggle" data-toggle="dropdown">{nomeDeUsuario}</a>
+				<a class="navbar-brand" href="{url}homeAdm"><img src="{url}assets/img/logoadm.png" width="60px" height="60px"></a>
+				<h3 class="name">ADMINISTRAÇÃO</h3>        		
+            <div class="collapse navbar-collapse" id="navbarExample">
+
+                <ul class="navbar-nav ml-auto">
+                	
+                   <li class="dropdown">
+        					<?php echo anchor(base_url("#"),"ADMINISTRADOR",
+        						array("class" => "dropdown-toggle","data-toggle"=>"dropdown")); ?>
         					<ul class="dropdown-menu">
-          					<li><?php echo anchor(base_url("homeAdm"),"VOLTAR") ?></li>
+          					<li><?php echo anchor(base_url("homeUser"),"Sair") ?></li>
           					
         					</ul>
 
@@ -71,19 +75,32 @@
         <div class="col-lg-8 offset-lg-2">
             <h2 class="text-center">LIVROS</h2>
             <hr cforeachlass="star-primary">
-             <div class='box1'>           
-            <?php 
-					foreach($livros as $livro){
-						if($livro->permissao == 0){
-							echo "<hr><img src='{url}img/publicacoes/" . $livro->idLivro. "." .$livro->foto."' width='100''>"."<br>";
-							echo "<br><div class='livroTitulo'><b>" . $livro->titulo . "</b></div>";
-							echo "<div class='livroAutor'>" . $livro->autor ."</div>";
-				   		echo "<div class='livroDescricao'>" . $livro->descricao ."</div>";
-				   		echo anchor(base_url("homeAdm/permitir"),"Permitir");
-				   	}
-					}            
+            <div class='box1'>           
+            	<?php 					
+							echo "<table border = '1'>" .
+										"<tr>" .
+											"<th width = '20%'>IMAGEM</th>" .
+											"<th width = '40%'>INFORMAÇÕES</th>" .
+											"<th width = '40%'>OPERAÇÕES</th>".
+										"</tr>";
+										foreach($livros as $livro){
+											if($livro->permissao == 0){
+												echo  "<tr>" .
+							 								"<td><img src='{url}img/publicacoes/" . $livro->idLivro. "." .$livro->foto."' width='100'</td>" .
+							 								"<td>Título: <div class='livroTitulo'><b>" . $livro->titulo . "</b></div>" .
+							 								"<hr>Autor: <div class='livroAutor'>" . $livro->autor ."</div>" .
+				   		 								"<hr>Descrição: <div class='livroDescricao'>" . $livro->descricao ."</div></td>" .
+				   		 								"<td>" . anchor(base_url("homeAdm/permitir"),"Permitir", array("class"=>"btn btn-mediun btn-success")) . "<hr>" .
+				   		 						 					anchor(base_url("homeAdm/corrigir"),"Corrigir", array("class"=>"btn btn-mediun btn-warning")) . "<hr>" .
+				   		 						 					anchor(base_url("homeAdm/recusar"),"Recusar", array("class"=>"btn btn-mediun btn-danger")) .
+				   		 								"</td>";
+				   		 				}
+				   		 			}
+				   		 			echo "</tr>" .
+				   		 		"</table>";				   		 			
+				   	           
 				?>
-						</div>
+				</div>
 		
 						
         </div>
