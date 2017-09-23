@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Alunos" >
+    <meta name="author" content="Brian" >
 
     <title>ATENA</title>
 
@@ -50,15 +50,7 @@
 				<h2 class="text-center2">BIBLIOTECA DE BABEL</h2>            
 				<div class="collapse navbar-collapse" id="navbarExample">
         			<ul class="navbar-nav ml-auto">
-               	<li class="dropdown">
-               	<a href="#" class="dropdown-toggle" data-toggle="dropdown">{nomeDeUsuario}</a>
-        					<ul class="dropdown-menu">
-          					<li><?php echo anchor(base_url("homeUser"),"Sair") ?></li>
-          					
-        					</ul>
-
-     					 </li>
-             
+               	<li><?php echo anchor(base_url("homeUser"),"VOLTAR", array("class" => "btn btn-mediun btn-primary")) ?></li>             
                 </ul>
             </div>
         </div>

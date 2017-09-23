@@ -44,7 +44,9 @@ hr.star-light::after{
 background-color:#6495ED;
 }
 
-
+#login{
+margin:425px;
+}
 
 #signin{
 margin-left:425px;
@@ -178,6 +180,39 @@ h6 {
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
   text-transform: uppercase; }
+  
+.dropdown {
+	text-align: center;
+    position: relative;
+    display: inline-block;
+}
+ .dropdown button{
+	width: 170px; 
+ }
+.dropdown-menu a {
+	font-size: 12px;
+    color: black;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-menu	a:hover {background-color: #f1f1f1}
 
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
 
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+  
+  
+  
+  
 

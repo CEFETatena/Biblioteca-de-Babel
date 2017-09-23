@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Alunos" >
+    <meta name="author" content="Brian" >
 
     <title>ATENA</title>
 
@@ -57,14 +57,19 @@
             <div class="collapse navbar-collapse" id="navbarExample">
         			<ul class="navbar-nav ml-auto">
                	<li class="dropdown">
-               	<a href="#" class="dropdown-toggle" data-toggle="dropdown">{nomeDeUsuario}</a>
-        					<ul class="dropdown-menu">
-        						 {perfil}								        						
-        							
-        				
-          					<li><?php echo anchor(base_url("homeUser/enviarLivrosUser")," Enviar Livro") ?></li>
-          					<li><?php echo anchor(base_url("homeUser/enviarDicasUser")," Enviar Dica") ?></li>
-          					<li><?php echo anchor(base_url('homeUser/logout')," Logout") ?></li>
+               		<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><?php echo $usuario["nomeDeUsuario"]?><span class="caret"></span></button>
+        					
+        					<ul class="dropdown-menu">  
+        						<li><?php echo anchor(base_url("homeUser/perfilUser"),"Perfil"); ?></li>      						
+          					<li><?php echo anchor(base_url("homeUser/enviarLivrosUser"),"Enviar Livro"); ?></li>
+          					<li><?php echo anchor(base_url("homeUser/enviarDicasUser"),"Enviar Dica"); ?></li>
+          					<div class="dropdown-divider"></div>        					
+								<?php if($usuario["perfil"] == 1){
+											echo anchor(base_url('homeUser/adm'),"Administrar");         						
+        								} 
+        						?>          					
+          					<li><?php echo anchor(base_url('homeUser/logout'), "Logout"); ?></li>
+          					
         					</ul>
 
      					 </li>

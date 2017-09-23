@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -52,22 +51,24 @@ uthor" content="Alunos" >
             <a class="navbar-brand" href="homeUser/livrosUser">LIVROS</a>
             <a class="navbar-brand" href="homeUser/dicasUser">DICAS</a>
             <a class="navbar-brand" href="homeUser/textosUser">TEXTOS</a>
-            <a class="navbar-brand" href="#about">SOBRE</a>
-            
+            <a class="navbar-brand" href="#about">SOBRE</a>          
 
             <div class="collapse navbar-collapse" id="navbarExample">
         			<ul class="navbar-nav ml-auto">
                	<li class="dropdown">
-        					<?php echo anchor(base_url("produtos"),$usuario["nomeDeUsuario"],
-        						array("class" => "dropdown-toggle","data-toggle"=>"dropdown")); ?>
-        					<ul class="dropdown-menu">
-        						<?php if($usuario["perfil"] == 1){
-											echo anchor(base_url('homeUser/adm')," Administrar");         						
+               		<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><?php echo $usuario["nomeDeUsuario"]?><span class="caret"></span></button>
+        					
+        					<ul class="dropdown-menu">  
+        						<li><?php echo anchor(base_url("homeUser/perfilUser"),"Perfil"); ?></li>      						
+          					<li><?php echo anchor(base_url("homeUser/enviarLivrosUser"),"Enviar Livro"); ?></li>
+          					<li><?php echo anchor(base_url("homeUser/enviarDicasUser"),"Enviar Dica"); ?></li>
+          					<div class="dropdown-divider"></div>        					
+								<?php if($usuario["perfil"] == 1){
+											echo anchor(base_url('homeUser/adm'),"Administrar");         						
         								} 
-        						?>
-          					<li><?php echo anchor(base_url("homeUser/enviarLivrosUser")," Enviar Livro") ?></li>
-          					<li><?php echo anchor(base_url("homeUser/enviarDicasUser")," Enviar Dica") ?></li>
-          					<li><?php echo anchor(base_url('homeUser/logout')," Logout") ?></li>
+        						?>          					
+          					<li><?php echo anchor(base_url('homeUser/logout'), "Logout"); ?></li>
+          					
         					</ul>
 
      					 </li>
@@ -84,7 +85,7 @@ uthor" content="Alunos" >
             <div class="col-lg-6 intro-text" style="float:right; padding-top:10%">
             
                 <span class="name">BIBLIOTECA DE BABEL</span>
-                <img class="img-fluid" id="img2" src="{url}assets/img/estrela2.png" alt="">
+                <img class="img-fluid" id="img2" src="assets/img/estrela2.png" alt="">
                 
             </div>
         </div>
@@ -113,9 +114,6 @@ uthor" content="Alunos" >
         </div>
     </section>
 
-
-    </section>
-
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
     <!-- INí
     <div class="scroll-top hidden-lg-up">
@@ -124,6 +122,8 @@ uthor" content="Alunos" >
         </a>
     </div>
 
+
+    <!-- Bootstrap core JavaScript -->
     <!-- Bootstrap core JavaScript -->
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/tether/tether.min.js"></script>
@@ -133,6 +133,7 @@ uthor" content="Alunos" >
     <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Contact Form JavaScript -->
+
     <script src="assets/js/jqBootstrapValidation.js"></script>
     <script src="assets/js/contact_me.js"></script>
 
@@ -142,3 +143,4 @@ uthor" content="Alunos" >
 </body>
 
 </html>
+

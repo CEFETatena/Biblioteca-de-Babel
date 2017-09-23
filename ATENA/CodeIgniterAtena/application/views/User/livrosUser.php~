@@ -81,17 +81,17 @@
             <h2 class="text-center">LIVROS</h2>
             <hr class="star-primary">
              <div class='box1'>           
-            <?php 
-					foreach($livros as $livro){
-						if($livro->permissao == 1){
-							echo "<hr><img src='{url}img/publicacoes/" . $livro->idLivro. "." .$livro->foto."' width='100''>"."<br>";
-							echo "<br><div class='livroTitulo'><b>" . $livro->titulo . "</b></div>";
-							echo "<div class='livroAutor'>" . $livro->autor ."</div>";
-				   		echo "<div class='livroDescricao'>" . $livro->descricao ."</div>";
-				   	}
-					}            
-						?>
-						</div>
+            	<?php 
+						foreach($livros as $livro){
+							if($livro->permissao == 1){
+								echo "<hr><img src='{url}img/publicacoes/" . $livro->idLivro. "." .$livro->foto."' width='100''>"."<br>";
+								echo "<br><div class='livroTitulo'><b>" . $livro->titulo . "</b></div>";
+								echo "<div class='livroAutor'>" . $livro->autor ."</div>";
+				   			echo "<div class='livroDescricao'>" . $livro->descricao ."</div>";
+				   		}
+						}            
+					?>
+				</div>
 		
 						
         </div>

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -52,22 +51,23 @@ uthor" content="Alunos" >
             <a class="navbar-brand" href="homeUser/livrosUser">LIVROS</a>
             <a class="navbar-brand" href="homeUser/dicasUser">DICAS</a>
             <a class="navbar-brand" href="homeUser/textosUser">TEXTOS</a>
-            <a class="navbar-brand" href="#about">SOBRE</a>
-            
+            <a class="navbar-brand" href="#about">SOBRE</a>          
 
             <div class="collapse navbar-collapse" id="navbarExample">
         			<ul class="navbar-nav ml-auto">
                	<li class="dropdown">
-        					<?php echo anchor(base_url("produtos"),$usuario["nomeDeUsuario"],
-        						array("class" => "dropdown-toggle","data-toggle"=>"dropdown")); ?>
-        					<ul class="dropdown-menu">
-        						<?php if($usuario["perfil"] == 1){
+               		<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><?php echo $usuario["nomeDeUsuario"]?><span class="caret"></span></button>
+        					
+        					<ul class="dropdown-menu">        						
+          					<li><?php echo anchor(base_url("homeUser/enviarLivrosUser")," Enviar Livro"); ?></li>
+          					<li><?php echo anchor(base_url("homeUser/enviarDicasUser")," Enviar Dica"); ?></li>
+          					<div class="dropdown-divider"></div>        					
+								<?php if($usuario["perfil"] == 1){
 											echo anchor(base_url('homeUser/adm')," Administrar");         						
         								} 
-        						?>
-          					<li><?php echo anchor(base_url("homeUser/enviarLivrosUser")," Enviar Livro") ?></li>
-          					<li><?php echo anchor(base_url("homeUser/enviarDicasUser")," Enviar Dica") ?></li>
-          					<li><?php echo anchor(base_url('homeUser/logout')," Logout") ?></li>
+        						?>          					
+          					<li><?php echo anchor(base_url('homeUser/logout')," Logout"); ?></li>
+          					
         					</ul>
 
      					 </li>
@@ -84,7 +84,7 @@ uthor" content="Alunos" >
             <div class="col-lg-6 intro-text" style="float:right; padding-top:10%">
             
                 <span class="name">BIBLIOTECA DE BABEL</span>
-                <img class="img-fluid" id="img2" src="{url}assets/img/estrela2.png" alt="">
+                <img class="img-fluid" id="img2" src="assets/img/estrela2.png" alt="">
                 
             </div>
         </div>
@@ -113,9 +113,6 @@ uthor" content="Alunos" >
         </div>
     </section>
 
-
-    </section>
-
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
     <!-- INí
     <div class="scroll-top hidden-lg-up">
@@ -124,221 +121,6 @@ uthor" content="Alunos" >
         </a>
     </div>
 
-    <!-- Portfolio Modals -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 offset-lg-2">
-                            <div class="modal-body">
-                                <h2>VIDAS SECAS</h2>
-                                <hr class="star-primary">
-                                <img class="img-fluid img-centered" src="assets/img/portfolio/vidassecas.jpg" alt="">
-                                <p>Livro muito bom, uma bela obra de Graciliano Ramos</p>
-                                <ul class="list-inline item-details">
-                                    <li>Usuário:
-                                        <strong><p>VictorCabral029</p>
-                                    </strong>
-                                    </li>
-                                    <li>Data:
-                                        <strong><p>25/05/2017<p>
-                                    </strong>
-                                    </li>
-                                </ul>
-                                <button class="btn btn-primary" type="button" data-dismiss="modal"><i class="fa fa-times"></i> Fechar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Fim 1-->
-
-
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 offset-lg-2">
-                            <div class="modal-body">
-                                <h2>AS CRÔNICAS DE FOGO E GELO - GUERRA DOS TRONOS</h2>
-                                <hr class="star-primary">
-                                <img class="img-fluid img-centered" src="img/portfolio/guerradostronos.jpg" alt="">
-                                <p>Livro muito bom, uma bela obra de George R R Martin</p>
-                                <ul class="list-inline item-details">
-                                    <li>Usuário:
-                                        <strong><p>VictorCabral029</p>
-                                    </strong>
-                                    </li>
-                                    <li>Data:
-                                        <strong><p>25/05/2017<p>
-                                    </strong>
-                                    </li>
-                                </ul>
-                                <button class="btn btn-primary" type="button" data-dismiss="modal"><i class="fa fa-times"></i> Fechar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 offset-lg-2">
-                            <div class="modal-body">
-                                <h2>AS CRÔNICAS DE FOGO E GELO - FÚRIA DOS REIS</h2>
-                                <hr class="star-primary">
-                                <img class="img-fluid img-centered" src="img/portfolio/furiadosreis.jpg" alt="">
-                                <p>Livro muito bom, uma bela obra de George R R Martin</p>
-                                <ul class="list-inline item-details">
-                                    <li>Usuário:
-                                        <strong><p>VictorCabral029</p>
-                                    </strong>
-                                    </li>
-                                    <li>Data:
-                                        <strong><p>25/05/2017<p>
-                                    </strong>
-                                    </li>
-                                </ul>
-                                <button class="btn btn-primary" type="button" data-dismiss="modal"><i class="fa fa-times"></i> Fechar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 offset-lg-2">
-                            <div class="modal-body">
-                                <h2>AS CRÔNICAS DE FOGO E GELO - TORMENTA DAS ESPADAS</h2>
-                                <hr class="star-primary">
-                                <img class="img-fluid img-centered" src="assets/img/portfolio/tormentadasespadas.jpg" alt="">
-                                <p>Livro muito bom, uma bela obra de George R R Martin</p>
-                                <ul class="list-inline item-details">
-                                    <li>Usuário:
-                                        <strong><p>VictorCabral029</p>
-                                    </strong>
-                                    </li>
-                                    <li>Data:
-                                        <strong><p>25/05/2017<p>
-                                    </strong>
-                                    </li>
-                                </ul>
-                                <button class="btn btn-primary" type="button" data-dismiss="modal"><i class="fa fa-times"></i> Fechar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-<div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 offset-lg-2">
-                            <div class="modal-body">
-                                <h2>AS CRÔNICAS DE FOGO E GELO - DANÇA DOS DRAGÕES</h2>
-                                <hr class="star-primary">
-                                <img class="img-fluid img-centered" src="img/portfolio/dancadosdragoes.jpg" alt="">
-                                <p>Livro muito bom, uma bela obra de George R R Martin</p>
-                                <ul class="list-inline item-details">
-                                    <li>Usuário:
-                                        <strong><p>VictorCabral029</p>
-                                    </strong>
-                                    </li>
-                                    <li>Data:
-                                        <strong><p>25/05/2017<p>
-                                    </strong>
-                                    </li>
-                                </ul>
-                                <button class="btn btn-primary" type="button" data-dismiss="modal"><i class="fa fa-times"></i> Fechar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 offset-lg-2">
-                            <div class="modal-body">
-                                <h2>AS CRÔNICAS DE FOGO E GELO - FESTIM DOS CORVOS</h2>
-                                <hr class="star-primary">
-                                <img class="img-fluid img-centered" src="img/portfolio/ofestimdoscorvos.jpg" alt="">
-                                <p>Livro muito bom, uma bela obra de George R R Martin</p>
-                                <ul class="list-inline item-details">
-                                    <li>Usuário:
-                                        <strong><p>VictorCabral029</p>
-                                    </strong>
-                                    </li>
-                                    <li>Data:
-                                        <strong><p>25/05/2017<p>
-                                    </strong>
-                                    </li>
-                                </ul>
-                                <button class="btn btn-primary" type="button" data-dismiss="modal"><i class="fa fa-times"></i> Fechar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Bootstrap core JavaScript -->
     <!-- Bootstrap core JavaScript -->
@@ -350,6 +132,7 @@ uthor" content="Alunos" >
     <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Contact Form JavaScript -->
+
     <script src="assets/js/jqBootstrapValidation.js"></script>
     <script src="assets/js/contact_me.js"></script>
 
@@ -359,3 +142,4 @@ uthor" content="Alunos" >
 </body>
 
 </html>
+
