@@ -36,7 +36,7 @@
 
 </head>
 
-<body class="index" id="page-top" background="assets/img/babelazul.png">
+<body class="index" id="page-top" background="{url}assets/img/babelazul.png">
 
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-toggleable-md navbar-light" id="mainNav">
@@ -44,27 +44,12 @@
             Menu <i class="fa fa-bars"></i>
         </button>
         <div class="container">
-            <a class="navbar-brand" href=""><img src="assets/img/exemplo3.png" width="60px" height="60px"></a>
+            <a class="navbar-brand" href="{url}welcome"><img src="{url}assets/img/exemplo3.png" width="60px" height="60px"></a>
             <a class="navbar-brand" href="welcome/livros">LIVROS</a>
             <a class="navbar-brand" href="welcome/dicas">DICAS</a>
             <a class="navbar-brand" href="welcome/textos">TEXTOS</a>
             <a class="navbar-brand" href="#about">SOBRE</a>
 
-            <div class="collapse navbar-collapse" id="navbarExample">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                      <?php
-                        echo anchor(base_url("welcome/entrar"),"ENTRAR");
-                      ?>
-                    	<!--  <a class="nav-link" href="entrar">Entrar</a>-->
-                    </li>
-                    <li class="nav-item">
-                      <?php
-                        echo anchor(base_url("welcome/cadastrar"),"CADASTRAR");
-                      ?>
-                    </li>
-                </ul>
-            </div>
         </div>
     </nav>
 
@@ -74,8 +59,17 @@
             
             <div class="col-lg-6 intro-text" style="float:right; padding-top:10%">
             
-                <span class="name">BIBLIOTECA DE BABEL</span>
+                <h1><p>SEJA BEM VINDO</p></h1>
+							<p>Dados de cadastro recebidos.</p>	
+							<p> Seu cadastro foi efetuado com sucesso.<br>
+								Voçê receberá um email para ativação de sua conta.<br>
+								Caso não receba a mensagem em alguns minutos, cheque também a pasta SPAM da sua conta de email.<br>
+								Muito obrigado por se cadastrar.			
+							</p>
+						
                 <img class="img-fluid" id="img2" src="{url}assets/img/estrela2.png" alt="">
+                
+							
                 
             </div>
         </div>

@@ -10,6 +10,8 @@ class HomeUser extends CI_Controller {
 		$this->load->library('session');
 		if(!$this->session->userdata('logado')){
 				redirect("welcome/entrar");
+		}else if($this->session->userdata('status') == 0){
+			redirect("welcome/entrar");
 		}
 		
 

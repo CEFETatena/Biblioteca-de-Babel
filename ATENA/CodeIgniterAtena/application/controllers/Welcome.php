@@ -8,8 +8,9 @@ class Welcome extends CI_Controller {
 		$this->url['url'] = base_url();
 		$this->load->library('parser');
 		$this->load->library('session');
+		
 	}
-
+	
 	public function index()
 	{
 		$this->parser->parse('inicio.php',$this->url);
@@ -69,19 +70,11 @@ class Welcome extends CI_Controller {
 			if($ok == true){
 				if($dados['senha'] == $senha){
 					if($this->db->insert('usuario',$dados)){
-						$array = array("logado"=>TRUE);
-						$usuario = $dados['nomeDeUsuario'];
-						$user = $this->Usuarios->pegaUsuario($usuario);
-    					$array = array_merge($array,$user[0]);
-						$this->session->set_userdata($array);							  						
-						echo '<script>
-										alert("CADASTO EFETUADO!");
-							  	</script>';
-						redirect("homeUser");							 
+						$this->enviar_email_confirmacao($dados);							 
 							  								  		
 					}else{
 							echo '<script>
-											alert("CADASTRO NÃO EFETUADO!");
+											alert("Houve um erro ao processar seu cadastro. Tente novamente!");
 											location.href="../welcome/cadastrar";
 
 									  </script>';
@@ -102,4 +95,42 @@ class Welcome extends CI_Controller {
 			}
 	}
 
+	public function enviar_email_confirmacao($dados){
+			$mensagem = $this->load->view("emails/confirmar_cadastro.php",$dados,TRUE);
+			$this->load->library('email');
+			$this->email->from("cefetatena2017@gmail.com","Confirmação de cadastro");
+			$this->email->to($dados['email']);
+			$this->email->subject('BIBLIOTECA DE BABEL - confirmação de cadastro');
+			$this->email->message($mensagem);
+			$dadosConfirmados = $dados;
+			if($this->email->send()){
+				$this->parser->parse('cadastro_enviado',$this->url);
+							
+				
+			}else{
+				print_r($this->email_print_debugger());			
+			}		
+	}
+	
+	public function confirmar($hasEmail){
+			$dados['status'] = 1;
+			$this->db->where('md5(email)',$hasEmail);
+			if($this->db->update('usuario',$dados)){
+					
+				$this->parser->parse('cadastro_liberado',$this->url);
+									
+			}else{
+				echo "Houve um erro ao confirmar seu cadastro";			
+			}		
+	}
+	
+	public function confirmado() {	
+				$array = array("logado"=>TRUE);
+						$usuario = $dados['nomeDeUsuario'];
+						$user = $this->Usuarios->pegaUsuario($usuario);
+    					$array = array_merge($array,$user[0]);
+						$this->session->set_userdata($array);								  						
+				redirect("homeUser");
+	}
+		
 }

@@ -6,20 +6,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Alunos" >
+    <meta name="author" content="Brian" >
 
     <title>BIBLIOTECA DE BABEL</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{url}assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <?php
+      echo link_tag("assets/vendor/bootstrap/css/bootstrap.min.css");
 
-    <!-- Custom fonts for this template -->
-    <link href="{url}assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="{url}https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
-    <!-- Custom styles for this template -->
-    <link href="{url}assets/css/freelancer.min.css" rel="stylesheet">
-    <link href="{url}assets/css/estilo.css" rel="stylesheet">
+      echo link_tag("assets/vendor/font-awesome/css/font-awesome.min.css");
+      echo link_tag("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+      echo link_tag("https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic");
+
+
+      echo link_tag("assets/css/freelancer.min.css");
+      echo link_tag("assets/css/estilo.css");
+    ?>
 
     <!-- Temporary navbar container fix -->
     <style>
@@ -71,12 +74,12 @@
     <!-- Header -->
     <header class="masthead">
         <div class="container">
-            
+
             <div class="col-lg-6 intro-text" style="float:right; padding-top:10%">
-            
+
                 <span class="name">BIBLIOTECA DE BABEL</span>
                 <img class="img-fluid" id="img2" src="{url}assets/img/estrela2.png" alt="">
-                
+
             </div>
         </div>
     </header>
@@ -85,7 +88,7 @@
     <section id="portfolio" style="padding-top:10%;
 	padding-bottom:20%;
     position: relative;">
-        
+
     </section>
 
     <!-- About Section -->
@@ -107,7 +110,7 @@
 
     </section>
 
-   
+
 
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
     <!-- INí

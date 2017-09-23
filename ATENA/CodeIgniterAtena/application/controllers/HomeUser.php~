@@ -10,6 +10,8 @@ class HomeUser extends CI_Controller {
 		$this->load->library('session');
 		if(!$this->session->userdata('logado')){
 				redirect("welcome/entrar");
+		}else if($this->session->userdata('idUsuario') == 0){
+			redirect("welcome/entrar");
 		}
 		
 
@@ -27,7 +29,6 @@ class HomeUser extends CI_Controller {
 	}
 	
 	public function livrosUser(){file:///home/www/ATENA/CodeIgniterAtena/application/controllers/HomeAdm.php
-
 		$user = $this->session->get_userdata();
 		$user['url'] = base_url();
 		if($user['perfil'] == 1){
