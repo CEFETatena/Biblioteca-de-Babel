@@ -79,6 +79,7 @@
 							  			"<b>".$dica->titulo ."</b><br>" . 							  	
 								  		$dica->descricao . "<br>" .
 							  		"</div>";
+							echo anchor(base_url("homeAdm/permitir"),"Permitir");
 						}
 					}           
 					?>       

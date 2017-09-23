@@ -53,13 +53,7 @@
 
                 <ul class="navbar-nav ml-auto">
                 	
-                   <li class="dropdown">
-        					<?php echo anchor(base_url("#"),"ADMINISTRADOR",
-        						array("class" => "dropdown-toggle","data-toggle"=>"dropdown")); ?>
-        					<ul class="dropdown-menu">
-          					<li><?php echo anchor(base_url("homeUser"),"Sair") ?></li>
-          					
-        					</ul>
+                   <?php echo anchor(base_url("homeAdm"),"VOLTAR", array("class" => "btn btn-mediun btn-primary")) ?>
 
      					 </li>
              
@@ -73,8 +67,8 @@
     <br>
     <section id="portfolio">
         <div class="col-lg-8 offset-lg-2">
-            <h2 class="text-center">LIVROS</h2>
-            <hr cforeachlass="star-primary">
+            <h2 class="text-center">GERENCIAR LIVROS</h2>
+            <hr class="star-primary">
             <div class='box1'>           
             	<?php 					
 							echo "<table border = '1'>" .

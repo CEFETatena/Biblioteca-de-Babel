@@ -101,7 +101,6 @@
 				<td>
 					<div class="col-lg-3 offset-lg-5">
 						<input name="submit" type="submit" value="Publicar" class="btn btn-primary btn-lg">
-						<input value="Cancelar" class="btn btn-primary btn-lg">
 					</div>
 				</td>
 				</tr>

@@ -53,7 +53,7 @@
 
                 <ul class="navbar-nav ml-auto">
                 	
-                   <li><?php echo anchor(base_url("homeUser"),"Sair") ?></li>
+                   <li><?php echo anchor(base_url("homeUser"),"Sair", array("class" => "btn btn-mediun btn-primary")) ?></li>
                 </ul>
             </div>
         </div>
