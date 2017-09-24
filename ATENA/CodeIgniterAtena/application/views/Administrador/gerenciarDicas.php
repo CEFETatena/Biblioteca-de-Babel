@@ -66,15 +66,24 @@
             <hr class="star-primary">
             <div class="dicas">
            	 <?php 
-					foreach($dicas as $dica){					
-						if($dica->permissao == 0){ 	
-							echo "<hr><div class='box1'>" .									 
-							  			"<b>".$dica->titulo ."</b><br>" . 							  	
-								  		$dica->descricao . "<br>" .
-							  		"</div>";
-							echo anchor(base_url("homeAdm/permitir"),"Permitir");
-						}
-					}           
+					echo "<table border = '1'>" .
+										"<tr>" .
+											"<th width = '60%'>INFORMAÇÕES</th>" .
+											"<th width = '40%'>OPERAÇÕES</th>".
+										"</tr>";
+										foreach($dicas as $dica){
+											if($dica->permissao == 0){
+												echo  "<tr>" .							 
+							 								"<td>Título: <div class='dicaTitulo'><b>" . $dica->titulo . "</b></div>" .							 						
+				   		 								"<hr>Descrição: <div class='livroDescricao'>" . $dica->descricao ."</div></td>" .
+				   		 								"<td>" . anchor(base_url("dicasAdm/permitir/" . $dica->idDica),"Permitir", array("class"=>"btn btn-mediun btn-success")) . "<hr>" .
+				   		 						 					anchor(base_url("dicasAdm/corrigir/" . $dica->idDica),"Corrigir", array("class"=>"btn btn-mediun btn-warning")) . "<hr>" .
+				   		 						 					anchor(base_url("dicasAdm/recusar/" . $dica->idDica),"Recusar", array("class"=>"btn btn-mediun btn-danger")) .
+				   		 								"</td>";
+				   		 				}
+				   		 			}
+				   		 			echo "</tr>" .
+				   		 		"</table>";       
 					?>       
             </div>
 

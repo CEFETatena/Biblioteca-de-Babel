@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Alunos" >
+    <meta name="author" content="Brian" >
 
     <title>ATENA</title>
 
@@ -50,14 +50,7 @@
 				<h2 class="text-center2">BIBLIOTECA DE BABEL</h2>            
 				<div class="collapse navbar-collapse" id="navbarExample">
         			<ul class="navbar-nav ml-auto">
-               	<li class="dropdown">
-               	<a href="#" class="dropdown-toggle" data-toggle="dropdown">{nomeDeUsuario}</a>
-        					<ul class="dropdown-menu">
-          					<li><?php echo anchor(base_url("homeAdm"),"VOLTAR") ?></li>
-          					
-        					</ul>
-
-     					 </li>
+               	<?php echo anchor(base_url("homeAdm"),"VOLTAR", array("class" => "btn btn-mediun btn-primary")) ?>
              
                 </ul>
             </div>
@@ -73,15 +66,24 @@
             <hr class="star-primary">
             <div class="dicas">
            	 <?php 
-					foreach($dicas as $dica){					
-						if($dica->permissao == 0){ 	
-							echo "<hr><div class='box1'>" .									 
-							  			"<b>".$dica->titulo ."</b><br>" . 							  	
-								  		$dica->descricao . "<br>" .
-							  		"</div>";
-							echo anchor(base_url("homeAdm/permitir"),"Permitir");
-						}
-					}           
+					echo "<table border = '1'>" .
+										"<tr>" .
+											"<th width = '60%'>INFORMAÇÕES</th>" .
+											"<th width = '40%'>OPERAÇÕES</th>".
+										"</tr>";
+										foreach($dicas as $dica){
+											if($dica->permissao == 0){
+												echo  "<tr>" .							 
+							 								"<td>Título: <div class='dicaTitulo'><b>" . $dica->titulo . "</b></div>" .							 						
+				   		 								"<hr>Descrição: <div class='livroDescricao'>" . $dica->descricao ."</div></td>" .
+				   		 								"<td>" . anchor(base_url("dicasAdm/permitir/" . $dica->idDica),"Permitir", array("class"=>"btn btn-mediun btn-success")) . "<hr>" .
+				   		 						 					anchor(base_url("dicasAdm/corrigir/" . $dica->idDica),"Corrigir", array("class"=>"btn btn-mediun btn-warning")) . "<hr>" .
+				   		 						 					anchor(base_url("dicasAdm/recusar/" . $dica->idDica),"Recusar", array("class"=>"btn btn-mediun btn-danger")) .
+				   		 								"</td>";
+				   		 				}
+				   		 			}
+				   		 			echo "</tr>" .
+				   		 		"</table>";       
 					?>       
             </div>
 

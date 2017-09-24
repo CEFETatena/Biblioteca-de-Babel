@@ -42,20 +42,15 @@
 <body class="index" id="page-top">
 
     <!-- Navigation -->
-     <nav class="navbar fixed-top navbar-toggleable-md navbar-light" id="mainNav">
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-light" id="mainNav">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
             Menu <i class="fa fa-bars"></i>
         </button>
-       <div class="container">
-				<a class="navbar-brand" href="{url}homeAdm"><img src="{url}assets/img/logoadm.png" width="60px" height="60px"></a>
-				<h3 class="name">ADMINISTRAÇÃO</h3>        		
-            <div class="collapse navbar-collapse" id="navbarExample">
-
-                <ul class="navbar-nav ml-auto">
-                	
-                   <?php echo anchor(base_url("homeAdm"),"VOLTAR", array("class" => "btn btn-mediun btn-primary")) ?>
-
-     					 </li>
+      <div class="container">
+				<h2 class="text-center2">BIBLIOTECA DE BABEL</h2>            
+				<div class="collapse navbar-collapse" id="navbarExample">
+        			<ul class="navbar-nav ml-auto">
+               	<?php echo anchor(base_url("homeAdm"),"VOLTAR", array("class" => "btn btn-mediun btn-primary")) ?>
              
                 </ul>
             </div>
@@ -66,39 +61,45 @@
     <!-- Portfolio Grid Section -->
     <br>
     <section id="portfolio">
-        <div class="col-lg-8 offset-lg-2">
-            <h2 class="text-center">GERENCIAR LIVROS</h2>
+        <div class="container">
+        		<br>
+            <h2 class="text-center">USUÁRIOS</h2>
             <hr class="star-primary">
-            <div class='box1'>           
-            	<?php 					
-							echo "<table border = '1'>" .
-										"<tr>" .
-											"<th width = '20%'>IMAGEM</th>" .
-											"<th width = '40%'>INFORMAÇÕES</th>" .
-											"<th width = '40%'>OPERAÇÕES</th>".
-										"</tr>";
-										foreach($livros as $livro){
-											if($livro->permissao == 0){
-												echo  "<tr>" .
-							 								"<td><img src='{url}img/publicacoes/" . $livro->idLivro. "." .$livro->foto."' width='100'</td>" .
-							 								"<td>Título: <div class='livroTitulo'><b>" . $livro->titulo . "</b></div>" .
-							 								"<hr>Autor: <div class='livroAutor'>" . $livro->autor ."</div>" .
-				   		 								"<hr>Descrição: <div class='livroDescricao'>" . $livro->descricao ."</div></td>" .
-				   		 								"<td>" . anchor(base_url("livrosAdm/permitir/" . $livro->idLivro),"Permitir", array("class"=>"btn btn-mediun btn-success")) . "<hr>" .
-				   		 						 					anchor(base_url("livrosAdm/corrigir/" . $livro->idLivro),"Corrigir", array("class"=>"btn btn-mediun btn-warning")) . "<hr>" .
-				   		 						 					anchor(base_url("livrosAdm/recusar/" . $livro->idLivro),"Recusar", array("class"=>"btn btn-mediun btn-danger")) .
-				   		 								"</td>";
-				   		 				}
-				   		 			}
-				   		 			echo "</tr>" .
-				   		 		"</table>";				   		 			
-				   	           
-				?>
-				</div>
-		
+            <div class="usuarios">
+           	 	<?php 
+						echo form_open(base_url("buscarUsuario")) . 
+								form_label('BUSCAR POR: ', 'txt_busca') .
+								form_input('txt_busca') .
+								form_close();
 						
-        </div>
-    </section>
+						echo "<table border = '1'>" .
+										"<tr>" .
+											"<th width = '20%'>NOME</th>" .
+											"<th width = '20%'>SOBRENOME</th>" .
+											"<th width = '20%'>NOME DE USUÁRIO</th>" .
+											"<th width = '30%'>EMAIL</th>" .
+											"<th width = '5%'>PERFIL</th>" .
+											"<th width = '5%'>STATUS</th>" .											
+										"</tr>" .
+										"<tr>" .
+							 			
+							 								"<td>" . $usuario[0]->nome . "</td>" .
+							 								"<td>" . $usuario[0]->sobrenome . "</td>" .
+							 								"<td>" . $usuario[0]->nomeDeUsuario . "</td>" .
+							 								"<td>" . $usuario[0]->email . "</td>" .
+							 								"<td>" . $usuario[0]->perfil . "</td>" .
+							 								"<td>" . $usuario[0]->status . "</td>" .
+							 								
+				   		 			"</tr>" .
+				   		 "</table>";							
+						           	 	
+           	 	?>
+           	 	
+				</div>
+     </div>
+
+     
+
 
     <!-- About Section -->
     <section class="success" id="about">
@@ -119,9 +120,6 @@
 
     </section>
 
-   
-
-   
     <!-- Bootstrap core JavaScript -->
     <script src="{url}assets/vendor/jquery/jquery.min.js"></script>
     <script src="{url}assets/vendor/tether/tether.min.js"></script>

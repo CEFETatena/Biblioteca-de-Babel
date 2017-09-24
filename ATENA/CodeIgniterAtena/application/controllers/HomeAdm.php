@@ -41,88 +41,7 @@ class HomeAdm extends CI_Controller {
 	{
 		redirect(base_url("Login/logout"));
 	}
-	//CADASTRA (LIVROS, TEXTOS E DICAS) NO BANCO DE DADOS 
-	public function publicarLivro(){
-		$dados['titulo'] = $this->input->post('txtNome');
-		$dados['autor'] = $this->input->post('txtAutor');
-		$dados['descricao'] = $this->input->post('txtDescricao');
-		$dados['idUsuario'] = $this->session->userdata('idUsuario');
-		$dados['permissao'] = 1;
-		$arquivo = explode(".", $_FILES["imagem"]["name"]);
-		$dados['foto'] = $arquivo[1];
-		if($this->db->insert('livro',$dados)){
-			$url['url'] = base_url();
-			$url['idLivro'] = $this->db->insert_id();
-			$config['upload_path'] = 'img/publicacoes';
-			$config['allowed_types'] = 'jpg|jpeg|png';
-			$config['file_name'] = $url['idLivro'];
-			$this->upload->initialize($config);
-			$this->upload->do_upload('imagem');
-			echo '
-					<html> <body>
-					<script>
-						alert("PUBLICAÇÃO FEITA!");
-						window.location = ("'.base_url().'homeAdm");
-					</script>
-					</body> </html>';
-		}else {
-			echo '
-					<html> <body>
-					<script>
-						alert("ERRO AO PUBLICAR!");
-						window.location = ("'.base_url().'homeAdm/livroAdm");
-					</script>
-					</body> </html>';
-		}
-		
-		
-	}
-	public function publicarTexto(){
-		$dados['titulo'] = $this->input->post('txtTitulo');
-		$dados['autor'] = $this->input->post('txtAutor');
-		$dados['texto'] = $this->input->post('txtTexto');
-		if($this->db->insert('texto',$dados)){
-			echo '
-					<html> <body>
-					<script>
-						alert("PUBLICAÇÃO FEITA!");
-						window.location = ("'.base_url().'homeAdm");
-					</script>
-					</body> </html>';
-		
-		}else{	
-			echo		'
-					<html> <body>
-					<script>
-						alert("ERRO AO PUBLICAR!");
-						window.location = ("'.base_url().'homeAdm/textoAdm");
-					</script>
-					</body> </html>';
-		}
-	}
-	public function publicarDica(){
-		$dados['titulo'] = $this->input->post('txtTitulo');
-		$dados['descricao'] = $this->input->post('txtDescricao');
-		$dados['idUsuario'] = $this->session->userdata('idUsuario');
-		$dados['permissao'] = 1;
-		if($this->db->insert('dica',$dados)){
-			echo '
-					<html> <body>
-					<script>
-						alert("PUBLICAÇÃO FEITA!");
-						window.location = ("'.base_url().'homeAdm");
-					</script>
-					</body> </html>';
-		}else{
-			echo '
-					<html> <body>
-					<script>
-						alert("ERRO AO PUBLICAR !");
-						window.location = ("'.base_url().'homeAdm/dicaAdm");
-					</script>
-					</body> </html>';
-		}
-	}
+	
 //GERENCIA AS PUBLICAÇÕES FEITAS PELOS USUÁRIOS
 	public function gerenciarLivros() {
 		$user = $this->session->get_userdata();
@@ -139,6 +58,14 @@ class HomeAdm extends CI_Controller {
 		$this->parser->parse('Administrador/gerenciarDicas.php',$user);
 	}
 	public function gerenciarUsuarios(){
-	
+		$user = $this->session->get_userdata();
+		$user['url'] = base_url();
+		$this->parser->parse('Administrador/gerenciarUsuarios.php',$user);
+	}
+	//BUSCA
+	public function buscarUsuario(){
+		$this->load->model('Usuarios');
+		$dados['usuario'] = $this->Usuarios->busca($this->input->post('txt_busca'));
+		$this->load->view('Administrador/buscaUsuario',$dados);
 	}
 }

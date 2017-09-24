@@ -71,7 +71,7 @@
             
             <hr>
 				<div class="col-lg-6 offset-lg-3">
-        			<form name="nomedoform" action="publicarDica" method="POST" >
+        			<form name="nomedoform" action="{url}dicasAdm/publicarDica" method="POST" >
 					<table>
 					<tr> 
 						<td><label><b>TÍTULO:</b> </label></td>

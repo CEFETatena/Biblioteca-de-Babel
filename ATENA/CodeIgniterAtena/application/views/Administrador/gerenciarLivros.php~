@@ -68,7 +68,7 @@
     <section id="portfolio">
         <div class="col-lg-8 offset-lg-2">
             <h2 class="text-center">GERENCIAR LIVROS</h2>
-            <hr cforeachlass="star-primary">
+            <hr class="star-primary">
             <div class='box1'>           
             	<?php 					
 							echo "<table border = '1'>" .
@@ -84,9 +84,9 @@
 							 								"<td>Título: <div class='livroTitulo'><b>" . $livro->titulo . "</b></div>" .
 							 								"<hr>Autor: <div class='livroAutor'>" . $livro->autor ."</div>" .
 				   		 								"<hr>Descrição: <div class='livroDescricao'>" . $livro->descricao ."</div></td>" .
-				   		 								"<td>" . anchor(base_url("homeAdm/permitir"),"Permitir", array("class"=>"btn btn-mediun btn-success")) . "<hr>" .
-				   		 						 					anchor(base_url("homeAdm/corrigir"),"Corrigir", array("class"=>"btn btn-mediun btn-warning")) . "<hr>" .
-				   		 						 					anchor(base_url("homeAdm/recusar"),"Recusar", array("class"=>"btn btn-mediun btn-danger")) .
+				   		 								"<td>" . anchor(base_url("livros/permitir/" . $livro->idLivro),"Permitir", array("class"=>"btn btn-mediun btn-success")) . "<hr>" .
+				   		 						 					anchor(base_url("livros/corrigir/" . $livro->idLivro),"Corrigir", array("class"=>"btn btn-mediun btn-warning")) . "<hr>" .
+				   		 						 					anchor(base_url("livros/recusar/" . $livro->idLivro),"Recusar", array("class"=>"btn btn-mediun btn-danger")) .
 				   		 								"</td>";
 				   		 				}
 				   		 			}

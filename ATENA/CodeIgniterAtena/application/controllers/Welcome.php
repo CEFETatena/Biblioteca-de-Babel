@@ -122,15 +122,5 @@ class Welcome extends CI_Controller {
 			}else{
 				echo "Houve um erro ao confirmar seu cadastro";			
 			}		
-	}
-	
-	public function confirmado() {	
-				$array = array("logado"=>TRUE);
-						$usuario = $dados['nomeDeUsuario'];
-						$user = $this->Usuarios->pegaUsuario($usuario);
-    					$array = array_merge($array,$user[0]);
-						$this->session->set_userdata($array);								  						
-				redirect("homeUser");
-	}
-		
+	}	
 }

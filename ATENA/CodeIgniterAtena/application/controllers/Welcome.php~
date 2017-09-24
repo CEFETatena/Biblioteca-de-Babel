@@ -3,12 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 	private $url = array();
-	private $dadosConfirmados = null;
 	public function __construct() {
 		parent::__construct();
 		$this->url['url'] = base_url();
 		$this->load->library('parser');
 		$this->load->library('session');
+		
 	}
 	
 	public function index()
@@ -102,7 +102,7 @@ class Welcome extends CI_Controller {
 			$this->email->to($dados['email']);
 			$this->email->subject('BIBLIOTECA DE BABEL - confirmação de cadastro');
 			$this->email->message($mensagem);
-			$this->dadosConfirmados = $dados['nomeDeUsuario'];
+			$dadosConfirmados = $dados;
 			if($this->email->send()){
 				$this->parser->parse('cadastro_enviado',$this->url);
 							
@@ -126,8 +126,7 @@ class Welcome extends CI_Controller {
 	
 	public function confirmado() {	
 				$array = array("logado"=>TRUE);
-						$this->load->model("Usuarios");				
-						$usuario = $this->dadosConfirmados;
+						$usuario = $dados['nomeDeUsuario'];
 						$user = $this->Usuarios->pegaUsuario($usuario);
     					$array = array_merge($array,$user[0]);
 						$this->session->set_userdata($array);								  						

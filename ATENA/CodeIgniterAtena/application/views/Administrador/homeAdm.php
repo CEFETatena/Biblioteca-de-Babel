@@ -72,7 +72,7 @@
             <hr>
             <?php echo anchor(base_url("homeAdm/gerenciarLivros"),"GERENCIAR LIVROS",array("class" => "btn btn-mediun btn-warning"))?>
             <?php echo anchor(base_url("homeAdm/gerenciarDicas"),"GERENCIAR DICAS",array("class" => "btn btn-mediun btn-warning"))?>
-            <?php echo anchor(base_url("homeAdm/gerenciaruUsuarios"),"GERENCIAR USUÁRIOS",array("class" => "btn btn-mediun btn-warning"))?>
+            <?php echo anchor(base_url("homeAdm/gerenciarUsuarios"),"GERENCIAR USUÁRIOS",array("class" => "btn btn-mediun btn-warning"))?>
         </div>
     </header>
 
