@@ -1,0 +1,10 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Usuarios extends CI_Model {
+
+    public function pegaLirvo($id){
+    	return $resultado = $this->db->query("SELECT * FROM livro WHERE idLivro = '$id')->result_array();
+    }	
+  }
+?>
