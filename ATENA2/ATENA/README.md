@@ -1,2 +1,0 @@
-# ATENA
-Projeto LPTI

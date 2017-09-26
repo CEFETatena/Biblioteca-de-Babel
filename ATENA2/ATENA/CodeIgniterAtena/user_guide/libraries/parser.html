@@ -1,774 +1,0 @@
-
-
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Template Parser Class &mdash; CodeIgniter 3.1.4 documentation</title>
-  
-
-  
-  
-    <link rel="shortcut icon" href="../_static/ci-icon.ico"/>
-  
-
-  
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-
-  
-  
-    
-
-  
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/citheme.css" type="text/css" />
-  
-
-  
-    <link rel="top" title="CodeIgniter 3.1.4 documentation" href="../index.html"/>
-        <link rel="up" title="Libraries" href="index.html"/>
-        <link rel="next" title="Security Class" href="security.html"/>
-        <link rel="prev" title="Pagination Class" href="pagination.html"/> 
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div id="nav">
-  <div id="nav_inner">
-    
-    
-    
-      <div id="pulldown-menu" class="ciNav">
-        <ul>
-<li class="toctree-l1"><a class="reference internal" href="../general/welcome.html">Welcome to CodeIgniter</a><ul class="simple">
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation Instructions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../installation/downloads.html">Downloading CodeIgniter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation/index.html">Installation Instructions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Troubleshooting</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">CodeIgniter Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../overview/getting_started.html">Getting Started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/at_a_glance.html">CodeIgniter at a Glance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/features.html">Supported Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/appflow.html">Application Flow Chart</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/mvc.html">Model-View-Controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/goals.html">Architectural Goals</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Static pages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">News section</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Create news items</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusion</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contributing to CodeIgniter</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">Writing CodeIgniter Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/controllers.html">Controllers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/reserved_names.html">Reserved Names</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/views.html">Views</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/models.html">Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helpers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/libraries.html">Using CodeIgniter Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/creating_libraries.html">Creating Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/drivers.html">Using CodeIgniter Drivers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/creating_drivers.html">Creating Drivers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/core_classes.html">Creating Core System Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/ancillary_classes.html">Creating Ancillary Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/hooks.html">Hooks - Extending the Framework Core</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/autoloader.html">Auto-loading Resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Common Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/compatibility_functions.html">Compatibility Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/routing.html">URI Routing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Caching</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/profiling.html">Profiling Your Application</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/cli.html">Running via the CLI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/alternative_php.html">Alternate PHP Syntax for View Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/security.html">Security</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/styleguide.html">PHP Style Guide</a></li>
-</ul>
-</li>
-</ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Libraries</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="benchmark.html">Benchmarking Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="caching.html">Caching Driver</a></li>
-<li class="toctree-l2"><a class="reference internal" href="calendar.html">Calendaring Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cart.html">Shopping Cart Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="config.html">Config Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="email.html">Email Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="encrypt.html">Encrypt Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="encryption.html">Encryption Library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="file_uploading.html">File Uploading Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="form_validation.html">Form Validation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ftp.html">FTP Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image_lib.html">Image Manipulation Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="input.html">Input Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="javascript.html">Javascript Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language.html">Language Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="loader.html">Loader Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migration.html">Migrations Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="output.html">Output Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pagination.html">Pagination Class</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Template Parser Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="security.html">Security Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="table.html">HTML Table Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="trackback.html">Trackback Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="typography.html">Typography Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="unit_testing.html">Unit Testing Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="uri.html">URI Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_agent.html">User Agent Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="xmlrpc.html">XML-RPC and XML-RPC Server Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="zip.html">Zip Encoding Class</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Database Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Quick Start: Usage Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Database Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Connecting to a Database</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Running Queries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generating Query Results</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Query Helper Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Query Builder Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/caching.html">Query Caching</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Database Utilities Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/db_driver_reference.html">Database Driver Reference</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/captcha_helper.html">CAPTCHA Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/directory_helper.html">Directory Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/download_helper.html">Download Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/email_helper.html">Email Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/file_helper.html">File Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/language_helper.html">Language Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/path_helper.html">Path Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/smiley_helper.html">Smiley Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/string_helper.html">String Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/typography_helper.html">Typography Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
-</ul>
-</li>
-</ul>
-
-      </div>
-    
-      
-  </div>
-</div>
-<div id="nav2">
-  <a href="#" id="openToc">
-    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAZABkAAD/7AARRHVja3kAAQAEAAAARgAA/+4ADkFkb2JlAGTAAAAAAf/bAIQABAMDAwMDBAMDBAYEAwQGBwUEBAUHCAYGBwYGCAoICQkJCQgKCgwMDAwMCgwMDQ0MDBERERERFBQUFBQUFBQUFAEEBQUIBwgPCgoPFA4ODhQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQU/8AAEQgAKwCaAwERAAIRAQMRAf/EAHsAAQAABwEBAAAAAAAAAAAAAAABAwQFBgcIAgkBAQAAAAAAAAAAAAAAAAAAAAAQAAEDAwICBwYEAgsAAAAAAAIBAwQAEQUSBiEHkROTVNQWGDFBUVIUCHEiMtOUFWGBobHRQlMkZIRVEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDSC+ygkOOaUoKigUCgUCgUCgUCgUCgUCgUCgkuGguIP9FBMFb0Hqg7We+3jlmIqqYFf4ub+/QYlnOR/LqIBKGFUbf8qWv971BytQXXE7Y3Lnm3HsFhp2TaZJAdchRXpIgSpdEJWxJEW3xoKV7F5OMy7JkQn2o7D6w33XGjEAkoiqrJEqIiOIiKuhePCgqp22dyYyS3CyWHnQ5joG61HkRnmnTbaFSMhExRVQRRVJU9iUHjE7ez+fJ0MFipmUNhBV8YUd2SoIV9KkjQla9ltegttBdPLW4/qocL+UTfrMiHW4+P9M71shuyrqaHTcxsl7jegpsji8nh5ZwMvDfgTm0RTjSmjYdFCS6KoOIipdFunCgmNYTMv457MMY6U7iI6oMieDDhRm1VbIhuoOkbqtuK0Hpzb+eZcYZexUxt6UyUqK2cd0SdjtgrhOgijcgERUlJOCIl6CpgbP3blRI8XgMjNARAyKNDfeRBdFDBVUAXgQrqH4pxoJTu2NysY97LP4ac1io5q1InHFeGO24LnVKJuKOkSQ/yKir+rh7aCLG1dzypZQI2FnvTgccYOM3FeN0XWERXAUEFVQgQkUktdLpegm+Td3/Xli/L+S/mYNJIOF9G/wBeLKrZHFb0akG6W1WtQWSg3Dyg5e7V3fipE3O4/wCrktyzYA+ufas2LbZIlmnAT2kvuoN1wft95augilglX/tzP3qCu9O3LL/wV/i5v79BvmTADq14UGu91467Z6U9y0HzH/ncj/U/sT/CgynZG7I2NezpZGUjIycJkYkZSG+uQ81pbBNKLxJfjwoMqZ3/ALYHl35AJ7/cuwHcu5k7r1Q5pHetBjquqVVJWGxj9Zrtcl/Ggy3dHMvauR3HFZj5nHNxSyW5JISYDMoIwx8tFIGHZhPNaykGapr6rUAiicEoMG21lMRj8buPAz8xhJrr7uOeiPTCyAwXUaGR1mgozbTusOsFLEiJ7fbQa/h7gcjy2H3V6xppwDNtUSxCJIqp7valBuWVzJ22xuCROXNNZiJkMtms0DbjUkAZjzoDrTMd9dDRI44ZC2YsrYdKWP2WDT2S3N9dNdlRYrGMYc06IURXSYb0igrpWS485xVNS6nF4rwslkoMwnbpgZLB7bmt5uMweAhDEl4B5uSLzzqTnnyVpW2jaJHRMSIjdDiiotvy3DOE5rYTEbkl5yFn28k7JyG4c7AU2HtLH1uKfaiMPI40CdYbpNtmLdwTSn5rewLNld+7TLdeal4WarWBkbVKBjgdElMJJwAAY5fl4kB3b1fp4XvagsGS3FjJfLzDNtS8aeXx7LzT7TyzByQE5PccRGRC0ZRUDRV6y62vbjagzLmJzS2vuPK43JY6aP1TW6Jz+RIWyFtyC06y3EkiiinAo7YCqfq1AqqnGgsOH3lhZO8d1pmcpB8j5XIm9OYlBJSQ/FSS4427DKO0RC8AlcEMhFdViRR1WDWR5t3WXVuL1d106kG9vdeye2g60+1FDyW0shIcXVpyroXt8I8dfd+NB1vioAdWnD3UF1+gD4UFc6CEKpagxXN43rwJLUHz7yX2c8zokt9uHlsPIhA4aRnnHJTLptIS6CNsY7iASpxUUMkReGpfbQW0vtN5pitvrsN28rwtBD0nc0+/Yft5XhaB6TuaXfsP28rwtA9J3NPv2H7eV4Wgek7mn37D9vK8LQPSdzT79h+3leFoHpO5pd+w/byvC0D0nc0u/Yft5XhaB6TuaXfsP28rwtA9J3NLv2H7eV4Wgek7ml37D9vK8LQPSdzS79h+3leFoHpO5p9+w/byvC0E9r7Reazy2HIYVPxkS/CUHVn26cosxyv2g7h89LYmZSXOenvLEQ1YaQ222RATcQCP8rSGqqA8S02W2pQ6FhMoAIlqCtsnwoCpdKClejI4i3Sgtb+GBxVuNBSFt1pV/RQefLjPyUDy4z8lA8uM/JQPLjPyUDy4z8lA8uM/JQPLjPyUDy4z8lA8uM/JQPLjPyUDy4z8lA8utJ/koJ7WCbBU/LQXOPAFq1koK8B0pag90CggtBBf6qB0UDooHRQOigdFA6KB0UDooHRQOigdFA6KB0UDooI0EaBQf//Z" title="Toggle Table of Contents" alt="Toggle Table of Contents" />
-  </a>
-</div>
-
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-nav-search">
-        
-          <a href="../index.html" class="fa fa-home"> CodeIgniter</a>
-        
-        
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        
-          
-          
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../general/welcome.html">Welcome to CodeIgniter</a><ul class="simple">
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation Instructions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../installation/downloads.html">Downloading CodeIgniter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation/index.html">Installation Instructions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Troubleshooting</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">CodeIgniter Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../overview/getting_started.html">Getting Started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/at_a_glance.html">CodeIgniter at a Glance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/features.html">Supported Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/appflow.html">Application Flow Chart</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/mvc.html">Model-View-Controller</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview/goals.html">Architectural Goals</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Static pages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">News section</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Create news items</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusion</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contributing to CodeIgniter</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../documentation/index.html">Writing CodeIgniter Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DCO.html">Developer&#8217;s Certificate of Origin 1.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/controllers.html">Controllers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/reserved_names.html">Reserved Names</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/views.html">Views</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/models.html">Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helpers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/libraries.html">Using CodeIgniter Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/creating_libraries.html">Creating Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/drivers.html">Using CodeIgniter Drivers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/creating_drivers.html">Creating Drivers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/core_classes.html">Creating Core System Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/ancillary_classes.html">Creating Ancillary Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/hooks.html">Hooks - Extending the Framework Core</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/autoloader.html">Auto-loading Resources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Common Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/compatibility_functions.html">Compatibility Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/routing.html">URI Routing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Caching</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/profiling.html">Profiling Your Application</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/cli.html">Running via the CLI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/alternative_php.html">Alternate PHP Syntax for View Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/security.html">Security</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../general/styleguide.html">PHP Style Guide</a></li>
-</ul>
-</li>
-</ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Libraries</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="benchmark.html">Benchmarking Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="caching.html">Caching Driver</a></li>
-<li class="toctree-l2"><a class="reference internal" href="calendar.html">Calendaring Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cart.html">Shopping Cart Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="config.html">Config Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="email.html">Email Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="encrypt.html">Encrypt Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="encryption.html">Encryption Library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="file_uploading.html">File Uploading Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="form_validation.html">Form Validation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ftp.html">FTP Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image_lib.html">Image Manipulation Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="input.html">Input Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="javascript.html">Javascript Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="language.html">Language Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="loader.html">Loader Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migration.html">Migrations Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="output.html">Output Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pagination.html">Pagination Class</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Template Parser Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="security.html">Security Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="table.html">HTML Table Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="trackback.html">Trackback Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="typography.html">Typography Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="unit_testing.html">Unit Testing Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="uri.html">URI Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_agent.html">User Agent Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="xmlrpc.html">XML-RPC and XML-RPC Server Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="zip.html">Zip Encoding Class</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Database Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Quick Start: Usage Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Database Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Connecting to a Database</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Running Queries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generating Query Results</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Query Helper Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Query Builder Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/caching.html">Query Caching</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/forge.html">Database Manipulation with Database Forge</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Database Utilities Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database/db_driver_reference.html">Database Driver Reference</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/captcha_helper.html">CAPTCHA Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/directory_helper.html">Directory Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/download_helper.html">Download Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/email_helper.html">Email Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/file_helper.html">File Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/language_helper.html">Language Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/path_helper.html">Path Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/smiley_helper.html">Smiley Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/string_helper.html">String Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/typography_helper.html">Typography Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">CodeIgniter</a>
-      </nav>
-
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-        <li><a href="index.html">Libraries</a> &raquo;</li>
-      
-    <li>Template Parser Class</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-    <div style="float:right;margin-left:5px;" id="closeMe">
-      <img title="Classic Layout" alt="classic layout" src="data:image/gif;base64,R0lGODlhFAAUAJEAAAAAADMzM////wAAACH5BAUUAAIALAAAAAAUABQAAAImlI+py+0PU5gRBRDM3DxbWoXis42X13USOLauUIqnlsaH/eY6UwAAOw==" />
-    </div>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document">
-            
-  <div class="section" id="template-parser-class">
-<h1>Template Parser Class<a class="headerlink" href="#template-parser-class" title="Permalink to this headline">Â¶</a></h1>
-<p>The Template Parser Class can perform simple text substitution for
-pseudo-variables contained within your view files.
-It can parse simple variables or variable tag pairs.</p>
-<p>If you&#8217;ve never used a template engine,
-pseudo-variable names are enclosed in braces, like this:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
-                <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">blog_title</span><span class="p">}</span><span class="o">&lt;/</span><span class="nx">title</span><span class="o">&gt;</span>
-        <span class="o">&lt;/</span><span class="nx">head</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
-                <span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">blog_heading</span><span class="p">}</span><span class="o">&lt;/</span><span class="nx">h3</span><span class="o">&gt;</span>
-
-        <span class="p">{</span><span class="nx">blog_entries</span><span class="p">}</span>
-                <span class="o">&lt;</span><span class="nx">h5</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;/</span><span class="nx">h5</span><span class="o">&gt;</span>
-                <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">body</span><span class="p">}</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
-        <span class="p">{</span><span class="o">/</span><span class="nx">blog_entries</span><span class="p">}</span>
-
-        <span class="o">&lt;/</span><span class="nx">body</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="nx">html</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-<p>These variables are not actual PHP variables, but rather plain text
-representations that allow you to eliminate PHP from your templates
-(view files).</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">CodeIgniter does <strong>not</strong> require you to use this class since
-using pure PHP in your view pages lets them run a little faster.
-However, some developers prefer to use a template engine if
-they work with designers who they feel would find some
-confusion working with PHP.</p>
-</div>
-<div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">The Template Parser Class is <strong>not</strong> a full-blown
-template parsing solution. We&#8217;ve kept it very lean on purpose in order
-to maintain maximum performance.</p>
-</div>
-<div class="contents local topic" id="contents">
-<ul class="simple">
-<li><a class="reference internal" href="#using-the-template-parser-class" id="id1">Using the Template Parser Class</a><ul>
-<li><a class="reference internal" href="#initializing-the-class" id="id2">Initializing the Class</a></li>
-<li><a class="reference internal" href="#parsing-templates" id="id3">Parsing templates</a></li>
-<li><a class="reference internal" href="#variable-pairs" id="id4">Variable Pairs</a></li>
-<li><a class="reference internal" href="#usage-notes" id="id5">Usage Notes</a></li>
-<li><a class="reference internal" href="#view-fragments" id="id6">View Fragments</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#class-reference" id="id7">Class Reference</a></li>
-</ul>
-</div>
-<div class="custom-index container"></div><div class="section" id="using-the-template-parser-class">
-<h2><a class="toc-backref" href="#id1">Using the Template Parser Class</a><a class="headerlink" href="#using-the-template-parser-class" title="Permalink to this headline">Â¶</a></h2>
-<div class="section" id="initializing-the-class">
-<h3><a class="toc-backref" href="#id2">Initializing the Class</a><a class="headerlink" href="#initializing-the-class" title="Permalink to this headline">Â¶</a></h3>
-<p>Like most other classes in CodeIgniter, the Parser class is initialized
-in your controller using the <tt class="docutils literal"><span class="pre">$this-&gt;load-&gt;library()</span></tt> method:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="o">-&gt;</span><span class="na">library</span><span class="p">(</span><span class="s1">&#39;parser&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>Once loaded, the Parser library object will be available using:
-$this-&gt;parser</p>
-</div>
-<div class="section" id="parsing-templates">
-<h3><a class="toc-backref" href="#id3">Parsing templates</a><a class="headerlink" href="#parsing-templates" title="Permalink to this headline">Â¶</a></h3>
-<p>You can use the <tt class="docutils literal"><span class="pre">parse()</span></tt> method to parse (or render) simple templates,
-like this:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-        <span class="s1">&#39;blog_title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;My Blog Title&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;blog_heading&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;My Blog Heading&#39;</span>
-<span class="p">);</span>
-
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">parser</span><span class="o">-&gt;</span><span class="na">parse</span><span class="p">(</span><span class="s1">&#39;blog_template&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>The first parameter contains the name of the <a class="reference internal" href="../general/views.html"><em>view
-file</em></a> (in this example the file would be called
-blog_template.php), and the second parameter contains an associative
-array of data to be replaced in the template. In the above example, the
-template would contain two variables: {blog_title} and {blog_heading}</p>
-<p>There is no need to &#8220;echo&#8221; or do something with the data returned by
-$this-&gt;parser-&gt;parse(). It is automatically passed to the output class
-to be sent to the browser. However, if you do want the data returned
-instead of sent to the output class you can pass TRUE (boolean) as the
-third parameter:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$string</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">parser</span><span class="o">-&gt;</span><span class="na">parse</span><span class="p">(</span><span class="s1">&#39;blog_template&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="variable-pairs">
-<h3><a class="toc-backref" href="#id4">Variable Pairs</a><a class="headerlink" href="#variable-pairs" title="Permalink to this headline">Â¶</a></h3>
-<p>The above example code allows simple variables to be replaced. What if
-you would like an entire block of variables to be repeated, with each
-iteration containing new values? Consider the template example we showed
-at the top of the page:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
-                <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">blog_title</span><span class="p">}</span><span class="o">&lt;/</span><span class="nx">title</span><span class="o">&gt;</span>
-        <span class="o">&lt;/</span><span class="nx">head</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
-                <span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">blog_heading</span><span class="p">}</span><span class="o">&lt;/</span><spah0bdñÓÛM"bi": ¶<gA±j>$×`Unæ#mcõò9*K"´&Gvš%@xn("Š% ,€(!xã:áNCâ%vU=§k#>x´68ônĞxctC-3bAò¢01NØ/z,lSÚi.~Gø'6_²òa8~kpïjˆqFesó/ xb~Ç.¿deÿİP$(!! ,Zq · €* yfE3l1`z`WO4.o"2×#tjØM:xíB|yûğr~[iDd5s³CLYdvøõœsbñ2aøpÎÃlk:Ò="n£ş.&³Š/rqpm,†3“%êqglÿa;MB[RüZ&aö¡îpXñìpk%Ó1*!êHªõ( s>_wraD6[thã #lÃW[=éğ›xM=6A Ğf½&÷r\hlcñk},ï¢q*±ıœ-{tãÚ?\CøQ6P£lbwot`Ê^¨/è>s8dT7Q“í.EcèCoSÿl®r2#r:?;PÄ#n~°²! $¸¬$0<0§!!
-p>säà1(`hãyÓd-"¾"È^;<)ã`âjÑ3q¤cl)Ûµ¾#Nj"?Pµ·2`A/f<óp)&…cDass©nCº®ïQ(87$cT qqa{ÑGáay*|æ™|cxñæ?B an k&cËsN Æpa>cAÙ-/r1j<sz¢\ f$©#7âx2.ÿ<¢spc&<k])Rpq/G_s6"®&$Zä]ï?ksaãî¾;sRIJ¸aleós8 Oz¦.0~uhÁê,súwB hbñs½ î$6/x=oóXaK>š-7& €‚"íEÛ%"l¹{ó= 0J.30'sXao™ÍR2+æ E.ë³sck~şğ/ô1#oøÈcq`Ø÷mcsò~s¬~çF»d[eF4Rçaz>á÷hu—lòxæ'$btCr?"&zY<ª{0g>#\e` –`
-)f°²X1l¤Ãd!q“E
-gâ> l\+	}/eXho4yaqg¤ge'Û9·f$2âgïyš)u0{N®8{pyF¼Cõa¿r<Jl¢{oö»=:crbn~´s3@Nh;,ecs½ G7œ·Hd%k¨2Q@Â&|` iìz"yafr?jny‚=©8m ®qtd?<w^Wn bL îò~¬.zl»4puALrJ´;ôcAODåe¾<-$èt:d°~!~1Ôlå0é[orÅbcotµdyoÙ./rr!1;hlªn.uí#GR+Ø!1#*ŠeF@ôp¦ig`<ıa/ {ùy6_Ñr$q(E3}(äC&`"º=<X+(ïÌtª÷råqrœ<Eë(ïajGm)lˆoe¡V1m2*](Ckeo|hpÌ8#)}Dyhkö äøpa4mwä|F"u(qi°²%9öc`wlÉDD:ia(k=àåiòdD‚¶pp{dutŞym$rNAgõÔSwv'li+c Eo
-thníhÁü÷/?E/Qï3ùø(}z# 2' ·89÷x+e×Egõris»¨zqùcdlg?uëö ÿ& 4Nõ 2ËrSnDreº? aÚòs»<üO?u1¾Xávy©næâ°¡òmÓcs zbš"31ÉR,¤oLrUqSogNe(m!ëÅaî5ıcaLXa-h }ü.Oşa~ayöe24p
-qA4ã¥'ÑÁN·j%À`âi!âmá’l„åháAQql#1må`G=Ä$T¢fåsƒ$oi~çi¦åÆnion`nâyvÂzSºƒëzsdc #$lyNK5/±Qmv0t£iaj,e¡Paqx 0yôe­°BëÎq(¨ği`”nAs.mlëMPˆ(ú¼Ö% ¾diæd"xaç0	Ëvoãoiçh<uÉj4G¥2¡àmswó0üéCpÈik¬î(V›Ëpo»÷rQia3<?s"‘.º±aõ=n`lo#3?í"—dtéiv)KpàkµAñA?¡!m9Cs~bMO=.o|>.*7úqı?WRie ¨NÑë'58nb7Ä§i`¾/s±E.|¾[P¥> u}hw~"|í BÀ,¯qpáî»<·QD)q.i3ó/ây'|iBr!r}—ğ!æ. 22õf çÎ@_s=.b .^-+pax$<SzÅì'mïaw³}âQqÂ>$#³+àâm°AV¦#50z¾/s8Dl~<PEi¡vÿ!q“}3âb¶ù<½vhÒ\¢	íëqa€emù7q™b'f
-4,aTI<$;Q#n2âRà!e L+agw ??=ec`av> <b3BV k,3ñÂ‹‚{êóWiÑ5MóXrà¼¾'Pa CuağS>"1¢>n /nù!~ 9#%˜) <3Xa|9we{Sâ³?£´&º;qhgWÏ&)”qe§!¾8?qd¡*¼`¤ l±ĞQj¢3L£qc9#x%?.gö>(Ÿrøl8<y2bjæG;#?`q3Ã2&c" 0]Y @`(hÇqÕgpâcWÀS<¯o$ ~Wİùuãê5ãœqò{’ £&4Erx!*8
-  0!`x@>ó`0îAÜábr®1sS#º2';1 Hlëg_ä@hig‚3m; fcXc&?üó ai R€ssu`+b2ECt{¬§ñò)Ï6qy#pgH,#ggS{ö#¼dT'b3{y*Æk¤óMáseè^³?9³<n¸BCÊ>vsEãn%s*¥Wíàbpv	>*ñriî"
- <`%¸be²üUpqï gôeeºÛq>­
-3)³"¤
-å[ef,vjiv'5¹¸L1ôil. +0rârc~sp;¹'mV34d.~?ÎSCa(>2<rU`,(+fap3y‚c 2ºjqı9'cuÉ6¼stå® Ú@	ñ{o¹BzilOspñGs	¨D¬ ¢¨""¨ r a:4[P!n0c8Ûqy*ë.~¡Zak82bal3°r\% Wj!srt"`Â¼´.wa~¸òp¤Ì"Ã ³òm_#{w>&#²170hdLe6¥³‹,'2zoW.}spA'6çlvCs7(B*^-&çtS²/j A.Ú!tñ0íÆ(ïxşwµc‡%£{y)VI|Nä³;#ó› ? 4`îlú#El4g.!p[T2àkšğÜ¤ûhkn;$ƒñ§c Ân|³z=£%$?2=áe'áğ19ğ©gèôeº ÷H±laAnawr?“#=ş''U+==±pAN* fSaîèkl-{yoƒ3e²â£³}8Âwd|4.«%»º<?÷tp¼m<VR%>`Ntaûq6*ó#.ƒD8{svwJ¶¤¡-4!M0!eèg¥(n#ê@ië +,âás“²Í²?äòb¡û¸K³ei~<g`a&#„l÷Qy°ã~)ä¿7r‘Î4bôi4$cl%5QŸB+µp&#«	2=êgM«#cs½10osa.<8?rZcN(#|iss)bG&2<$e~+32DKr ½xÑì£teû½(` 2>
-27-5DmöOt6#søø~¿÷q±E-üsqÁd‘eˆõ?kf1"D¬Popknh38WrFn w4äwû½ü03?4³;9¹Jhã9W{9y,cbpan* sYe/!!ló{3òF'|=S`;}¯;åiş> °@pñs%A¯Cbs9%cdk4'99bk6h 5"7}<'çÀaO>1aj!Ãlq7{?.Pb?»!dçQĞË+·*1¢08‚¬¸¢„¡(¦„ © ${aÑjeµüA~Ú0m­¤îbæò#û_“2kì..ÓPsì Déş8™ñh8€8gd~~-pQì(ola„wb9À&c99N¼ãuLeç 5#¼,rÀãæx¡vmç$Ñíu²s=&nf&à8<-{`a~< <4n``á{W	:uyY{39;ôd"lí40„%p{<mr á[8ñùJª:koirS=£ ¢¿~î-ssQ> qğ#>!k|K3w°`ÿâŸ¢·(»vè|l¶79)s c z8Ğòk ãly±@=oR>4öu2´;øuoj!Xcj +mákw!9sU6oy¹]Jÿå‰´¹ª [­s>®R0aaÜTsòéj y$esKƒxb)Ä6&ùêq/¿0§"¤ ñà ğj 0 ,¸tAø&{^gûs¿ hk6iRz¡¸,óĞcjj,[ql
-cäáó4`@"F`´záàaæ=˜vr¡f
-bZ+S³ÿ»C’34¯s¶i[ÅiawD4'317}>sa-+ÿ@|÷ppf€d~g%¨O–~(&A79¾SF°q?–²T+pinÉ,yóVY"ue*Dé40J×ip¯d¢u&*A}~/ãR_>4srl c Âa;§ñ74m4Cºaeo°-SĞaö¢Bx+q_fa8`>$Cw«Åg4õÌc³)µ°9ò>qƒNüx°b^°c|q÷“£ïb™b2¶<+b°%jş$„òàñì˜óÌp\ã9'ó¦'¢>77<;Åı¨ş§£#)¿2'V§id~p¡­ cÑ$q?²X"(,¯S^Qê>"$®0(`  ` ’q0 t÷pcÎ Cè•z“<ë'yAüs$Œ<%yPa.¬,CpPs1!]z3=cg"/9<?sGk/<W0al ,ícò¶ó1³Ş&c 9k5èõ|…có6Z,/s:H>¾s\cf,H)â°|ºï€>M¦-u3zoiVh+6éN"Ñävä¡xEcò5nÓ8dº3')xldg0•&39ûd/sĞ`n®3òkf(JØY³s8"p0:|ñQ!k65B`/aGáaõû/¦á1&~&;pXûCkà;£;8ú,/ÑPA~?à6÷t®bè­3çì6">® üœ«s´)B~X¿qxCnLcíh1³)bÓÊ8¦snhVm¼x"Uj2s[4Nâhaÿ¬Óxáü èúa·=kVO/=mö`lî< 	!4q# 2xén #tASº-"`"8¯søàk<èµc`andwFA¿ënæ:cô+sN.{}alKºc`Än‘Cäq3s=ü$ &­t`is¼*zPel³pÅN¨cîCu­ìµ!~)fÏ4+<H¢bñL"/c"eN€«nqSg¬"hKğê¶C5b4%'xsv<wTcN.qÌa{{#¯æ.=ã>~/s2éè,wäy%Blãá{-foA©üöHr5Ü-ó`ÙxwtspiK	B	árr3hq%< v!?ğ‘Gw<rPg/1ek {pı‚³2":N+0{Zl®ïß6cIÍìô$s39>>¿—Úa~;ŒWr/|#C%ÉóÛy p,4KC°áª?<a1ì áxÀqû=8n¶‚–Tu`tUü+(rA6rpa"ãlÁS[<2pB.I3l³´IL?2´"d5p~0+Ğü·Ozıfyv ?xç¨ıoE22 ‹t2<pmüÂ"h6p7¦àuA `×r+éHn# š²gdbq æÅ<dqtÒrásUHx®aÄ-++48á áD"f¡dYZaŠeÄWİ)'haoumYh®ô,8b$RPğ< |Ou*bqF°W¨Oxd»ğra´oøíqTsfcÒâ}dt¥cm!ğÓY*fcdàLXVèl¨5uR¨æc6
-ê!æ	sl`ûlşfğqd¾0EsWıt×arRo9a¾;ph[9ítÕs-ltèwtc<+8­J-fiÒ$3lgó3-"ÈIg8~hAìd cÈ .dâ7* a{÷?h­gyO[fhğó_~P`å2şPÖAşV>7ád".*³`á.¢-b33<.®t2$Ñ1Hr}½/c{ã~<Sğn0hlq÷ß'C&§74\üŸFct,)HæUcbé¢Vkf{C&ğcf$ô K3-Óğ!|\óqäb,rlÄvs~bn°|fe€
-8o÷á..T{t!FJ}eaW»=nfà36EÆ0‹qvq®/¼#uü&)häós/"f¢¦-.'u™/5¹PŞ?¬z`AZ©blsey2£j*qõmby$wó+<p|1zh³Mcsä=9p"œ(Ü{Srj~³k`~ 2uqby«s²'>ç«ü/]HEÃD! eÄRqglï—*u1å=ÿ,>qA2d>D6Òek(Ahv2w)6q¡¶):}cténJ
-0o9#ncıóS%2?,;<¥€ü c6ò8(><3V0nd+ïyòS™"?0§ïKn4,sYQ®>|npaKkaîE±r±rÎcb>]ÿ`d\Ï²t`n&<Óì!oaìÁ×cw"íú+¤AP9ü+÷q!n~u‹áu~FdeòİU/náB>niB’!ğ~?ã$ÁL<±ğhnñ< cGuªdr>(¶çsB/zãsxel¢Á4as{e2Ññ–z&7¢ı*Ppº³Õ=7#³-8.­RÒ!¶?|c/eL ª<dku=Ğ'>;8/kğC?³*<00y¡ìzvwİÂ<b3·+d@TA<=aôel>ƒ›òp#t Ahm±R¼ J.ÿ}owpQn¿ë¼r aî'3jâƒS&Ij«a’pg9=¿*èAn¼7qî(j.ùsXt`¶¤(tws)oh0¢ ¤d*"sñ1N,álóEû C5â7'S7•32`¡çWu`Tn6'²Iª<=ppé4 $á$o ÃÜgyb‘`h&¾;7E
-¼«z
-}n#l:G`qæõ$äCÓ¡q02>¦£:9+¬¸bnGt04èa(`¿pğ*xağ¡Â2.s8A.Ru|ekÖ>Rhï$,:,0xâ~>	0`,'0r¾ã8jzëkÀ4r½2ÓP¦.0ó=›dikçİ*`Á¨Äo>*ÿ<ecxav>Œ#ºdbaçô9Czy¢Á:=>ı534Lû±{;7€¤s0EJe2lSgÛ!¢3"Ö&#c8·-è(rxâglEå¥t}f‡')+uf2Tùnº<ópiL•GoA3³2P§¯-<?spHNÎ¢` `C©6<cXÓî¥/J`ã÷îNayd¾â;|ScğïN/o’bIfW7wà=:H« pAäº(='8AF°alA2ş+ãn~=&öÔ;<-{>Qf5 _“cÇj¨1äaswÀ¬r"of!añJZo×p9x¬<3YÇj²s(yÓ8&o(>¬/T3-e2An¾<CpÀ+4cıàĞs?*ÌE¢2zgsõÜ~!pğ08ñ`Ãg*}Sôñî0KL%zo¢g:2‹<qZ mşJmuQHx°ãl%s72ô#(»¸úBxfcz*}Ääyd*òe[q<²-.c{Tmğ¨º~8%wÖût#M'hlÙzÿ(¢ ?9&wx¼ó$=w2a>læÄáss3+F*>|ãòâER?3h[,,¢s³v"koÁÛ28`^kçfG0»¾gpioş´VR!ï-S|$cç<2oàNpaò2åG{b`¨¿>RrAn#è©á[=r´$ú.røõvmqQAJ±khe“<âpñs>& ±:xQëcReığTA<¡!4œ#<)Ñ0Sl|t³ÒaB c|qrs)¢Óe=n­r`ag• ?`rDêáï`2OÚx(~:‘+$atA~3ğähV55¸:~ n]aß*½1ö 
-*²¼0 bwI¶`Tq|<+Ä v:f¹or
-LÅâu>
-$Kv ¡AYr="oã£dulÆd5(G9;áÕáGm/nmÕe‘>$˜
-3<T#bóä`}#µÆĞmgm*$cYjqw²@Hj7~Ê#d­0:0{ğçVZk`ø¬«`xa"Ú(¡u‘eğ{åem3oë_û%i8vÇo.åwiw	)k/v¯{’õ-üXå5ªÕ3c0Mõl;$<oÖïéshUh$lÉw¬&yÀ²¸,ä?œ'H9:
-<ZK`0xÛ0"hOçlMåruà/901Õ+snhRsõ¦¬otUÒ2htHdd¨Cg4~;$!j¤Bô{daöd"	M€|ovTî8oziaVt:²¶	cY¸¡ ekjUxä¦;Ø>$=jg"ÅÎ9j=`pÙ¥hlhkeö?ky~`mm c¬Qw½ \ac)lwsÆÂ¾4pRa?83|qF?<%[Pëjº.up!ÎjcoazQ}Hò"+6&–gxg¹v%L«qúaj>’'Rp`ê(Syeás /&~½¶nBró}8 g”ğ®:B4a7k="23Bc1mºq(~n øfah15nÁMd|yûıâtNíhéqºk¡&{#óiao6%s@E¾!æ`sãåv@@<5¬ó`aZF
->ûdño`JNóss]
-şğ¹~5 `õ1:[i(?¦¾ctIdadqvw­6Ó!x'røcj2<76AV„»åasc-jëEt1r@mû}K3°ñ^z$ûWco¨B¬$s½+|z-6æ1cAì?R0* `0 ² =V¡n±K~qwy<&ó89n ;ª~IDdµ&Ãk38=jA&~º8cXAÿ ó\)+c=Knj8$Fà¶~(NóÔab?¡, AnJ&ìip3Åsq«$³±¹][6728¨'{"ôÉ
-#d£d!cœã@3<*püÿœd}1òÿì6B&¡à5a# !ğ5v*bOšsq<bw1â»†-yIî''sdNaÍd¢r·:R8‹÷õbm0óJcV¨¢hMcyqm"¾du>Y+ncåaNo˜­Jpi~¤",!øg`; º¾c90ùJîx–& .¹=+aVÀ.ş~ÑRh/rÃfaaiDˆĞ fh.¯#5yr$Ğ`$6â@=k}éLa-haã¶.u1³¯${9.Jmu¤§­T++9;$/``qö8 >ópÉ~ #¾`Óa»:Kbö12O°–?/w%ly@<P¸i0“l¦s"ñ?&~›±99D²g'ƒ1«!qálş":UpÁ® ciípf² ;;c9((vqe®©Š=fx3n!ãKwi°n2&}/7¥S÷/4Afé¿7laå§ñfe²ù`C6?gd>l³¿ÃEF<(q2xbrìÇ×q-#_""ü ·|pGn.Ssdî:x=àètFc|!ã÷} K"-c¶1/"ğèî,w8qo²£ŒAs2}nq&6buZrg[óp#JÎæsuZÑ`n&}€ÙzhnRûó±6>*>:©*²;£Nt<3Ğkî °lmqİrde¶,vdY:yöo?mS2 î¬yupH, #l…ûó4{0>-oÓòA&6ê²óH~#ápsr)*îwb=Dô©?.:hYd
-0 d:(Qm¡ k=ka£8-wş v.Én¼cpam{mq{{½.é3N?-¯(vgW5Ìt2 @AîM{H#C·,î,RO"ü¶ãl]/>*<ª4w/lëS–B9?Ä9V6ˆ¼r7IV!%ëu‚`pOìO+1nemõLdó(‘4#sTûí÷yg\c0áPM+õkFa„5(av`=w£s«r¡w#^!va‰î9{Oç{;tÅmõm¡pD?ljõ3–Giemfe*pu½4äm_vqáiÆb! á{`2°-6 HN$yxd6n§WwIe¸*z?2:%iD aic{7’Îiclè%'Xvµd1¦^di~G,tSu#*P/Ã¥ì-Eü"î=rE5<s²QŠ<¬o3|fîO<scµ¯âBI}Æn?"d–2´,TD_$sb~F%ó}ce. TÊ°igh"­ñC%
-o">¹|/1ğ(|L€a|em"ÄlAsx7€w|&+ú9"HeG@/8%^æxôsğjglqvvZ1NîAajó}$lAó0n%eg~÷)²{	'1p"|¬³`k jÈqqwq#nm<ƒ3S!ç>n1`AâuYiSr±è62·<ÅyPhosğaö< 5Q bq|p2ó¹*2Û}4?Q`AnE­°ösQ~2cDas³½‚{#næah//càåf?<~1QŞà'Xeb³2r.)=/3Tc5¿ p 0P¼ ¤<:XSì¤bl'r{"çxb%K3ı;ÕL|¼¿)g!ëX
-wz`n¿©cj{j œÔzj;#ov™b.6;/ùy‘x>!~`Án(0gïTsR*³@ª_2³±&oxƒ#39;</span><span class="p">,</span>
-        <span class="s1">&#39;firstname&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;lastname&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Doe&#39;</span>
-<span class="p">);</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">parser</span><span class="o">-&gt;</span><span class="na">parse_string</span><span class="p">(</span><span class="nv">$template</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
-
-<span class="c1">// Result: Hello, John {initials} Doe</span>
-</pre></div>
-</div>
-<p>If you provide a string substitution parameter when an array is expected,
-i.e. for a variable pair, the substitution is done for the opening variable
-pair tag, but the closing variable pair tag is not rendered properly:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$template</span> <span class="o">=</span> <span class="s1">&#39;Hello, {firstname} {lastname} ({degrees}{degree} {/degrees})&#39;</span><span class="p">;</span>
-<span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-        <span class="s1">&#39;degrees&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Mr&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;firstname&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;lastname&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Doe&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;titles&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-                <span class="k">array</span><span class="p">(</span><span class="s1">&#39;degree&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;BSc&#39;</span><span class="p">),</span>
-                <span class="k">array</span><span class="p">(</span><span class="s1">&#39;degree&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;PhD&#39;</span><span class="p">)</span>
-        <span class="p">)</span>
-<span class="p">);</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">parser</span><span class="o">-&gt;</span><span class="na">parse_string</span><span class="p">(</span><span class="nv">$template</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
-
-<span class="c1">// Result: Hello, John Doe (Mr{degree} {/degrees})</span>
-</pre></div>
-</div>
-<p>If you name one of your individual substitution parameters the same as one
-used inside a variable pair, the results may not be as expected:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$template</span> <span class="o">=</span> <span class="s1">&#39;Hello, {firstname} {lastname} ({degrees}{degree} {/degrees})&#39;</span><span class="p">;</span>
-<span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-        <span class="s1">&#39;degree&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Mr&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;firstname&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;lastname&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Doe&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;degrees&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-                <span class="k">array</span><span class="p">(</span><span class="s1">&#39;degree&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;BSc&#39;</span><span class="p">),</span>
-                <span class="k">array</span><span class="p">(</span><span class="s1">&#39;degree&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;PhD&#39;</span><span class="p">)</span>
-        <span class="p">)</span>
-<span class="p">);</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">parser</span><span class="o">-&gt;</span><span class="na">parse_string</span><span class="p">(</span><span class="nv">$template</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
-
-<span class="c1">// Result: Hello, John Doe (Mr Mr )</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="view-fragments">
-<h3><a class="toc-backref" href="#id6">View Fragments</a><a class="headerlink" href="#view-fragments" title="Permalink to this headline">Â¶</a></h3>
-<p>You do not have to use variable pairs to get the effect of iteration in
-your views. It is possible to use a view fragment for what would be inside
-a variable pair, and to control the iteration in your controller instead
-of in the view.</p>
-<p>An example with the iteration controlled in the view:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$template</span> <span class="o">=</span> <span class="s1">&#39;&lt;ul&gt;{menuitems}</span>
-<span class="s1">        &lt;li&gt;&lt;a href=&quot;{link}&quot;&gt;{title}&lt;/a&gt;&lt;/li&gt;</span>
-<span class="s1">{/menuitems}&lt;/ul&gt;&#39;</span><span class="p">;</span>
-
-<span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-        <span class="s1">&#39;menuitems&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-                <span class="k">array</span><span class="p">(</span><span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;First Link&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/first&#39;</span><span class="p">),</span>
-                <span class="k">array</span><span class="p">(</span><span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Second Link&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/second&#39;</span><span class="p">),</span>
-        <span class="p">)</span>
-<span class="p">);</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">parser</span><span class="o">-&gt;</span><span class="na">parse_string</span><span class="p">(</span><span class="nv">$template</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>Result:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;/first&quot;</span><span class="o">&gt;</span><span class="nx">First</span> <span class="nx">Link</span><span class="o">&lt;/</span><span class="nx">a</span><span class="o">&gt;&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;/second&quot;</span><span class="o">&gt;</span><span class="nx">Second</span> <span class="nx">Link</span><span class="o">&lt;/</span><span class="nx">a</span><span class="o">&gt;&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="nx">ul</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-<p>An example with the iteration controlled in the controller,
-using a view fragment:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$temp</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-<span class="nv">$template1</span> <span class="o">=</span> <span class="s1">&#39;&lt;li&gt;&lt;a href=&quot;{link}&quot;&gt;{title}&lt;/a&gt;&lt;/li&gt;&#39;</span><span class="p">;</span>
-<span class="nv">$data1</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;First Link&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/first&#39;</span><span class="p">),</span>
-        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Second Link&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/second&#39;</span><span class="p">),</span>
-<span class="p">);</span>
-
-<span class="k">foreach</span> <span class="p">(</span><span class="nv">$data1</span> <span class="k">as</span> <span class="nv">$menuitem</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="nv">$temp</span> <span class="o">.=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">parser</span><span class="o">-&gt;</span><span class="na">parse_string</span><span class="p">(</span><span class="nv">$template1</span><span class="p">,</span> <span class="nv">$menuitem</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="nv">$template</span> <span class="o">=</span> <span class="s1">&#39;&lt;ul&gt;{menuitems}&lt;/ul&gt;&#39;</span><span class="p">;</span>
-<span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-        <span class="s1">&#39;menuitems&#39;</span> <span class="o">=&gt;</span> <span class="nv">$temp</span>
-<span class="p">);</span>
-<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">parser</span><span class="o">-&gt;</span><span class="na">parse_string</span><span class="p">(</span><span class="nv">$template</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>Result:</p>
-<div class="highlight-ci"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;/first&quot;</span><span class="o">&gt;</span><span class="nx">First</span> <span class="nx">Link</span><span class="o">&lt;/</span><span class="nx">a</span><span class="o">&gt;&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;/second&quot;</span><span class="o">&gt;</span><span class="nx">Second</span> <span class="nx">Link</span><span class="o">&lt;/</span><span class="nx">a</span><span class="o">&gt;&lt;/</span><span class="nx">li</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="nx">ul</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="class-reference">
-<h2><a class="toc-backref" href="#id7">Class Reference</a><a class="headerlink" href="#class-reference" title="Permalink to this headline">Â¶</a></h2>
-<dl class="class">
-<dt id="CI_Parser">
-<em class="property">class </em><tt class="descname">CI_Parser</tt><a class="headerlink" href="#CI_Parser" title="Permalink to this definition">Â¶</a></dt>
-<dd><dl class="method">
-<dt id="CI_Parser::parse">
-<tt class="descname">parse</tt><big>(</big><em>$template</em>, <em>$data</em><span class="optional">[</span>, <em>$return = FALSE</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#CI_Parser::parse" title="Permalink to this definition">Â¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>$template</strong> (<em>string</em>) &#8211; Path to view file</li>
-<li><strong>$data</strong> (<em>array</em>) &#8211; Variable data</li>
-<li><strong>$return</strong> (<em>bool</em>) &#8211; Whether to only return the parsed template</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Parsed template string</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>Parses a template from the provided path and variables.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="CI_Parser::parse_string">
-<tt class="descname">parse_string</tt><big>(</big><em>$template</em>, <em>$data</em><span class="optional">[</span>, <em>$return = FALSE</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#CI_Parser::parse_string" title="Permalink to this definition">Â¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>$template</strong> (<em>string</em>) &#8211; Path to view file</li>
-<li><strong>$data</strong> (<em>array</em>) &#8211; Variable data</li>
-<li><strong>$return</strong> (<em>bool</em>) &#8211; Whether to only return the parsed template</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Parsed template string</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>This method works exactly like <tt class="docutils literal"><span class="pre">parse()</span></tt>, only it accepts
-the template as a string instead of loading a view file.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="CI_Parser::set_delimiters">
-<tt class="descname">set_delimiters</tt><big>(</big><span class="optional">[</span><em>$l = '{'</em><span class="optional">[</span>, <em>$r = '}'</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#CI_Parser::set_delimiters" title="Permalink to this definition">Â¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>$l</strong> (<em>string</em>) &#8211; Left delimiter</li>
-<li><strong>$r</strong> (<em>string</em>) &#8211; Right delimiter</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">void</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>Sets the delimiters (opening and closing) for a
-pseudo-variable &#8220;tag&#8221; in a template.</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-</div>
-
-
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="security.html" class="btn btn-neutral float-right" title="Security Class">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="pagination.html" class="btn btn-neutral" title="Pagination Class"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2014 - 2017, British Columbia Institute of Technology.
-      Last updated on Mar 20, 2017.
-    </p>
-  </div>
-
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="httpR÷ïl 0à°B$îi'gwèeasPakæz> •,?tµõe1u-O +a*ÁfmÆ9-B ’é9! ,nUjŸªAvT4¡*%~zõc'u@ol«cQ..ğm^çh$`Wøm©MsA<pæ0 —?¦fOn5w67« `q€¦ ±=fd™w|
-$ !ˆ°Ôm`mv$J+$"g;ís0}îlo
-, ;/báB88Œ) :^$A%0şÓÛDytUót]c¤à”$h§úDTj¯êÂpôh/l#!ƒŠ &itiµF„EEID\Şa6IKNWÍĞĞÍKOóh=ròørh(,’! <¡èÕR	’Og^š.6,×
-2*"%&bp ,! šQHUYÌ’§9.6=,„f30ã G0¡" 0€ÆTDPÚÅOO‚@Q:¤åjseÀjp"™!!`(#,ì@åILMM—EGAÛëgêğ|v!
-0*(  d"$¹ŠDI‡Óçt“aeš<X³àlQf ‘Œ2(04¨uZ$¢b¡sbc2ğ?x0+ #…=¼3b^ñ»t 2<dE="vÅìp*)af9±óóLPU `ûK`($¾„#Usäavik_Qwl2Nl÷&œ©r?kƒR*Š(d &$ÀÎWoµ¢q\"GyS}}"4kL‹k{váuC^el$' ûø#3"ª*#6ìuIO)!NxgS_Slp¶>O}æ¬o?cA{ü8;x8P`ñ |qëØa`q"¥#xe}€üAxw­BC7q3Árğuå* r.KY2(.~ò|ñZlK?OnÃ6‹c.c/
-QÑ¯>?{âmáS:*
-±H¢±(l`,d(öcò	e*îÔcpg<0ÿMèq«Csr1÷+:ØÔ&2cøi}C¦N/_÷öFvaú]bK«õ(alä,æ%6ffkbÊ$4>K, 
-0t$dop ”òB{{ğğ}dí‘0`eÑP7juó@T+(y$>«0 x¡¡`fEdi°gvI2i?ïtˆ)ùrZ ¬ 9 `R¬8gQllÌNNuàgè5}|%s\ackùkÆ}N'änihÈ]84 !cé[(²äıpfpËX0<$`0*L4
-K½3q8
-¸<bdml.
