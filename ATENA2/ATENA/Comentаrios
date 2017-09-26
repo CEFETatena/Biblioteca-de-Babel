@@ -1,0 +1,23 @@
+Mudanças (09/08/17) Aula 1:
+    Após o cadastro redireciona para a página de Usuário;
+    Página enviar dica;
+    
+    Aula 2:
+        Selecionar Usuario do banco de dados e enviar os dados para Pagina de   Usuário;
+        criação homeAdm.php, pasta do Administrador 
+
+
+Conclusão: Deixar o nome do usuario no canto superior direito, fazer um dropdown com: Perfil, Enviar Dica, Enviar Livro e Logout;
+
+
+MUDANÇAS (10/08/17):
+    Foi feito as mudanças citadas a cima;
+    
+    INCOMPLETO:
+        Criar Botão de carregar imagem na página de enviar dica de livro e no perfil do Usuário;
+        Descobrir como enviar os dados do usuario utilizando 'parser';
+        Fazer pagina para exibir as publicações(Livros, textos e dicas);
+        Criar pagina de Gerenciar do administrador;
+        
+        
+        
