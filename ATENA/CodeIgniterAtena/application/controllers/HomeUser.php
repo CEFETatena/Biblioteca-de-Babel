@@ -8,12 +8,12 @@ class HomeUser extends CI_Controller {
 		$this->url['url'] = base_url();
 		$this->load->library('parser');
 		$this->load->library('session');
+		$this->load->library('upload');
 		if(!$this->session->userdata('logado')){
 				redirect("welcome/entrar");
 		}else if($this->session->userdata('status') == 0){
 			redirect("welcome/entrar");
 		}
-		
 
 	}
 
@@ -55,6 +55,12 @@ class HomeUser extends CI_Controller {
 		$arquivo = explode(".", $_FILES["imagem"]["name"]);
 		$livro['foto'] = $arquivo[1];
 		if($this->db->insert('livro',$livro)){
+			$url['idLivro'] = $this->db->insert_id();
+			$config['upload_path'] = 'img/publicacoes';
+			$config['allowed_types'] = 'jpg|jpeg|png';
+			$config['file_name'] = $url['idLivro'];
+			$this->upload->initialize($config);
+			$this->upload->do_upload('imagem');			
 			echo '<html> <body>
 						<script>
 							alert("ENVIO REALIZADO! \n A publicação será realizada dentro de 1 dia");

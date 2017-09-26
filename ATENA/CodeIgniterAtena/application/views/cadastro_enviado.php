@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Brian" >
+    <meta name="author" content="Alunos" >
 
     <title>BIBLIOTECA DE BABEL</title>
 
@@ -62,7 +62,7 @@
                 <h1><p>SEJA BEM VINDO</p></h1>
 							<p>Dados de cadastro recebidos.</p>	
 							<p> Seu cadastro foi efetuado com sucesso.<br>
-								Voçê receberá um email para ativação de sua conta.<br>
+								Você receberá um email para ativação de sua conta.<br>
 								Caso não receba a mensagem em alguns minutos, cheque também a pasta SPAM da sua conta de email.<br>
 								Muito obrigado por se cadastrar.			
 							</p>

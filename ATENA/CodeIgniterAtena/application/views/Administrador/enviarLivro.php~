@@ -72,7 +72,7 @@
             
             <hr>
 				<div class="col-lg-6 offset-lg-3">
-           		<form name="enviarLivro" id="envlivro" action="{url}livros/publicarLivro" method="POST" enctype="multipart/form-data" >
+           		<form name="enviarLivro" id="envlivro" action="{url}livrosAdm/publicarLivro" method="POST" enctype="multipart/form-data" >
 					<table>
 						<tr> 
 							<td><label><b>TÍTULO :</b> </label></td>

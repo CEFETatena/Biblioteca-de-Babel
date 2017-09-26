@@ -74,7 +74,7 @@ class LivrosAdm extends CI_Controller {
 		$livro['titulo'] = $this->input->post('txt_titulo');
 		$livro['autor'] = $this->input->post('txt_autor');
 		$livro['descricao'] = $this->input->post('txt_descricao');
-		$this->db->where('idLivro', $this->input->post('idLivro');
+		$this->db->where('idLivro', $this->input->post('idLivro'));
 		if($this->db->update('livro',$livro)){
 			echo '
 					<html> <body>

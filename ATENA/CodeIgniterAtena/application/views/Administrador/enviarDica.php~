@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Brian" >
+    <meta name="author" content="Alunos" >
 
     <title>ATENA</title>
 
@@ -48,7 +48,7 @@
         </button>
         <div class="container">
         		<a class="navbar-brand" href="{url}homeAdm"><img src="{url}assets/img/logoadm.png" width="60px" height="60px"></a>
-				<h3 class="name">ADMINISTRAÇÃO</h3>        		
+				<h2 class="text-center2">ADMINISTRAÇÃO</h2>          		
             <div class="collapse navbar-collapse" id="navbarExample">
 
                 <ul class="navbar-nav ml-auto">
@@ -71,7 +71,7 @@
             
             <hr>
 				<div class="col-lg-6 offset-lg-3">
-        			<form name="nomedoform" action="{url}dicaAdm/publicarDica" method="POST" >
+        			<form name="nomedoform" action="{url}dicasAdm/publicarDica" method="POST" >
 					<table>
 					<tr> 
 						<td><label><b>TÍTULO:</b> </label></td>

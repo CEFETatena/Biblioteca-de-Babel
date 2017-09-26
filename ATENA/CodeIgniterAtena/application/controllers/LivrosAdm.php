@@ -22,7 +22,6 @@ class LivrosAdm extends CI_Controller {
 		$arquivo = explode(".", $_FILES["imagem"]["name"]);
 		$dados['foto'] = $arquivo[1];
 		if($this->db->insert('livro',$dados)){
-			$url['url'] = base_url();
 			$url['idLivro'] = $this->db->insert_id();
 			$config['upload_path'] = 'img/publicacoes';
 			$config['allowed_types'] = 'jpg|jpeg|png';

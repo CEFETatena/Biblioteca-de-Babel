@@ -97,36 +97,35 @@
           
          
           <input type="nome" class="form-control text-center" placeholder="Inserir Nome" id="txtName" name="txtName" required="" data-validation-required-message="Insira o nome">
-                  <br>
+                 <p class="help-block text-danger"></p>  
                   
-           <input type="sobrenome" class="form-control text-center" placeholder="Inserir Sobreome" id="txtSobrenome" name="txtSobrenome" required="" data-validation-required-message="Insira o sobrenome">
-            <br>
+           <input type="sobrenome" class="form-control text-center" placeholder="Inserir Sobrenome" id="txtSobrenome" name="txtSobrenome" required="" data-validation-required-message="Insira o sobrenome">
+            <p class="help-block text-danger"></p>  
                   
           
            <input type="nomeUsuario" class="form-control text-center" placeholder="Inserir Nome de Usuário" id="txtUsername" name="txtUsername" required="" data-validation-required-message="Insira nome de usuário valido">
-                  <br>
+                  <p class="help-block text-danger"></p>  
                   
           
           
           <input type="email" class="form-control text-center" placeholder="Inserir Email" id="txtEmail" name="txtEmail" required="" data-validation-required-message="Insira email valido.">
-                         <br>
-                  
+				<p class="help-block text-danger"></p>  
                   
           
          <input type="password" class="form-control text-center" placeholder="Inserir Senha" id="txtSenha" name="txtSenha" required="" data-validation-required-message="Insira sua senha">
-                          <br>
+                          <p class="help-block text-danger"></p>  
                   
                   
           
          <input type="password" class="form-control text-center" placeholder="Confirmar Senha" id="txtConfirma" name="txtConfirma" required="" data-validation-required-message="Confirme sua senha">
-                          <br>
+                        <p class="help-block text-danger"></p>  
                   
           
 					<a class="esquecisenha" href="#">Esqueci minha senha</a>
-					<br>
+					<p class="help-block text-danger"></p>  
 		       
           
-					  <br>
+					  <p class="help-block text-danger"></p>  
                 <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
                  </div>
 				     
