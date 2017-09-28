@@ -65,7 +65,7 @@ class HomeAdm extends CI_Controller {
 	//BUSCA
 	public function buscarUsuario(){
 		$this->load->model('Usuarios');
-		$dados['usuario'] = $this->Usuarios->busca($this->input->post('txt_busca'));
+		$dados['usuarios'] = $this->Usuarios->busca($this->input->post('txt_busca'));
 		$this->load->view('Administrador/buscaUsuario',$dados);
 	}
 }

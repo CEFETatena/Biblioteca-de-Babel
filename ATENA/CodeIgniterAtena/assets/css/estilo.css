@@ -210,7 +210,47 @@ h6 {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
-  
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+table a{
+	 padding: 8px;
+	 
+}
+
+
+.tabelaEditavel {
+    border:solid 1px;
+    width:100%
+}
+
+.tabelaEditavel td {
+    border:solid 1px;
+}
+
+.tabelaEditavel .celulaEmEdicao {
+    padding: 0;
+}
+
+.tabelaEditavel .celulaEmEdicao input[type=text]{
+    width:100%;
+    border:0;
+    background-color:rgb(255,253,210);  
+}
   
   
   

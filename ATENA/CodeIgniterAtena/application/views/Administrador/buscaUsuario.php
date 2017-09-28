@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Brian" >
+    <meta name="author" content="Alunos" >
 
     <title>ATENA</title>
 
@@ -70,70 +70,56 @@
 						echo form_open(base_url("homeAdm/buscarUsuario")) . 
 								form_label('BUSCAR POR: ', 'txt_busca') .
 								form_input('txt_busca') .
-								form_close();
+								form_close();	
 						
-						echo "<table border = '1'>" .
-										"<tr>" .
+						echo "<table class = 'tabelaEditavel'>" .
+										"<thead><tr>" .
 											"<th width = '20%'>NOME</th>" .
 											"<th width = '20%'>SOBRENOME</th>" .
 											"<th width = '20%'>NOME DE USUÁRIO</th>" .
 											"<th width = '30%'>EMAIL</th>" .
 											"<th width = '5%'>PERFIL</th>" .
 											"<th width = '5%'>STATUS</th>" .											
-										"</tr>" .
-										"<tr>" .
-							 			
-							 								"<td>" . $usuario[0]->nome . "</td>" .
-							 								"<td>" . $usuario[0]->sobrenome . "</td>" .
-							 								"<td>" . $usuario[0]->nomeDeUsuario . "</td>" .
-							 								"<td>" . $usuario[0]->email . "</td>" .
-							 								"<td>" . $usuario[0]->perfil . "</td>" .
-							 								"<td>" . $usuario[0]->status . "</td>" .
-							 								
-				   		 			"</tr>" .
-				   		 "</table>";							
+										"</tr></thead>";
+										foreach($usuarios as $usuario){
+							 						echo
+														"<tbody><tr>" .										
+							 								"<td>" . $usuario->nome . "</td>" .
+							 								"<td>" . $usuario->sobrenome . "</td>" .
+							 								"<td>" . $usuario->nomeDeUsuario . "</td>" .
+							 								"<td>" . $usuario->email . "</td>" .
+							 								"<td>" . $usuario->perfil . "</td>" .
+							 								"<td>" . $usuario->status . "</td>"	.						 								
+				   		 							"</tr></tbody>";
+				   		 			}
+				   		 "</table>";						
 						           	 	
            	 	?>
            	 	
 				</div>
-     </div>
-
-     
+     </div>  
 
 
-    <!-- About Section -->
-    <section class="success" id="about">
-        <div class="container">
-            <h2 class="text-center">SOBRE</h2>
-            <hr class="star-light">
-            <div class="row">
-                <div class="col-lg-4 offset-lg-2">
-                    <p>Este é um projeto idealizado pela professora Keilla Petrin e orientado pelo professor Lázaro Eduardo realizado durante o ano de 2017 na disciplina de</p>
-                </div>
-                <div class="col-lg-4">
-                    <p> LPTI pelos alunos : Brian Henrique Messias, Karollina Paiva, Luiz Henrique Silvério e Victor Cabral, do 3º Informática do CEFET-MG Varginha.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
     </section>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="{url}assets/vendor/jquery/jquery.min.js"></script>
-    <script src="{url}assets/vendor/tether/tether.min.js"></script>
-    <script src="{url}assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../assets/vendor/tether/tether.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="{url}assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="{url}assets/js/jqBootstrapValidation.js"></script>
-    <script src="{url}assets/js/contact_me.js"></script>
+    <script src="../assets/js/jqBootstrapValidation.js"></script>
+    <script src="../assets/js/contact_me.js"></script>
+    <script src="../assets/js/jquery-3.2.1.min.js"></script>
+    <script src="../assets/js/script.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="{url}assets/js/freelancer.min.js"></script>
+    <script src="../assets/js/freelancer.min.js"></script>
 
 </body>
 
