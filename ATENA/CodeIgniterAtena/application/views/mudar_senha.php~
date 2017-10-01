@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Alunos" >
+    <meta name="author" content="Brian" >
 
     <title>ATENA</title>
 
@@ -36,6 +36,19 @@
         }
     }
     </style>
+    <script src="{url}assets/vendor/jquery/jquery.min.js"></script>
+    <script src="{url}assets/vendor/tether/tether.min.js"></script>
+    <script src="{url}assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{url}assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="{url}assets/js/jqBootstrapValidation.js"></script>
+    <script src="{url}assets/js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{url}assets/js/freelancer.min.js"></script>
 
 </head>
 
@@ -47,8 +60,9 @@
             Menu <i class="fa fa-bars"></i>
         </button>
         <div class="container">
-            <a class="navbar-brand" href="../">INÍCIO</a>
+            <a class="navbar-brand" href="../"><img src="{url}assets/img/exemplo3.png" width="60px" height="60px"></a>
             <a class="navbar-brand" href="livros">LIVROS</a>
+            <a class="navbar-brand" href="dicas">DICAS</a>
             <a class="navbar-brand" href="textos">TEXTOS</a>
             <a class="navbar-brand" href="#about">SOBRE</a>
 
@@ -56,7 +70,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="entrar">Entrar</a>
-
+								
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="cadastrar">Cadastrar</a>
@@ -72,39 +86,32 @@
      <section id="contact">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12 text-center">
-            <br><br><h2>Recuparar Senha</h2>
+          <div class="col-lg-8 text-center offset-lg-2">
+            <br><br><h2>ALTERAR SENHA</h2>
             <hr class="star-primary">
           </div>
-        </div>
-        <div class="row">
+          	<div class="col-lg-8 text-center offset-lg-2">
+          <form   method="POST" action="../alterar_senha"  >
+          	<div class="col-lg-8 text-center offset-lg-2">
+          	<?php echo "<pre>" . print_r("{id}") . "</pre>"?>
+          	<input type="hidden" class="form_control text-center" placeholder= '<?php echo $id ?>' id="txt_id" name="txt_id" VALUE="{id}">
+          <input type="password" class="form-control text-center" placeholder="Senha Nova" id="txt_senha1" name="txt_senha1" required="" data-validation-required-message="Insira nova senha">
+   		<p class="help-block text-danger"></p>      
+        
+          
+          <input type="password" class="form-control text-center" placeholder="Confirmar Senha Nova" id="txt_senha2" name="txt_senha2" required="" data-validation-required-message="Insira nova senha novamente">
+			<p class="help-block text-danger"></p>          
 
-            <!-- To configure the contact form email address, go to mail/contact_me.php
-            and update the email address in the PHP file on line 19. -->
-            <!-- The form should work on most web servers, but if the form is not
-            working you may need to configure your web server differently. -->
-				<form name="redsenha" id="redefinir_senha"  method="POST" action="../Login/redefinir_senha" enctype="multipart/form-data">
-
-              <div class="row control-group">
-                <div class="form-group col-xs-4 floating-label-form-group controls">
-                  <label>Nova senha</label>
-                  <input type="password" class="form-control" placeholder="Nova senha" id="novaSenha" name="novaSenha" required="">
-                  <p class="help-block text-danger"></p>
-                </div>
-                <div class="form-group col-xs-4 floating-label-form-group controls">
-                  <label>Confirmar senha</label>
-                  <input type="password" class="form-control" placeholder="Confirmar senha" id="confirmarSenha" name="confirmarSenha" required="">
-                  <p class="help-block text-danger"></p>
-                </div>                
-              </div>
-              <div class="entrar">
-				  <div class="col-lg-12 text-center">
+            
 					  <br>
                 <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
-				</div>
-			</div>
-            </form>
-          </div>
+				    
+          
+          
+        </div>
+       	</form>
+       	</div>
+        
         </div>
       </div>
     </section>
@@ -129,33 +136,6 @@
 
     </section>
 
-    <!-- Footer -->
-    <footer class="text-center">
-        <div class="footer-above">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-col col-md-4">
-                    </div>
-
-                    <div class="footer-col col-md-4">
-                        <h3>LOCAL</h3>
-                        <p>Av. dos Imigrantes, 1000 - Vargem</p>
-                        <p>VARGINHA - MG</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-below">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        Copyright &copy; CEFET-MG 2017
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
     <div class="scroll-top hidden-lg-up">
         <a class="btn btn-primary page-scroll" href="{url}#page-top">
@@ -166,19 +146,7 @@
 
 
     <!-- Bootstrap core JavaScript -->
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/tether/tether.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="assets/js/jqBootstrapValidation.js"></script>
-    <script src="assets/js/contact_me.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="assets/js/freelancer.min.js"></script>
 
 </body>
 

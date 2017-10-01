@@ -19,14 +19,21 @@ class Login extends CI_Controller {
     $this->load->model("Usuarios");
     $usuario = $this->input->post('txtUsername');
     $senha = sha1($this->input->post('txtSenha')); 
-    $user= $this->Usuarios->pegaUsuario($usuario);   
-     if($user['nomeDeUsuario'] == $nome || $user['email'] == $nome && $senha == $user['senha'] ){
-    	$array = array("logado"=>TRUE);
-    	$user = $this->Usuarios->pegaUsuario($usuario);
-    	$array = array_merge($array,$user[0]);
-     	$this->session->set_userdata($array);
-     	redirect("homeUser");      
-      
+    $user= $this->Usuarios->pegaUsuario($usuario);  
+     if($user[0]['nomeDeUsuario'] == $usuario || $user[0]['email'] == $usuario){
+     		if($senha == $user[0]['senha'] ){
+    			$array = array("logado"=>TRUE);
+    			$user = $this->Usuarios->pegaUsuario($usuario);
+    			$array = array_merge($array,$user[0]);
+     			$this->session->set_userdata($array);
+     			redirect("homeUser");      
+      	}else{
+      		$this->session->sess_destroy();
+			echo '<script>
+							alert("NOME DE USUARIO/EMAIL ou SENHA inválidos");
+							location.href="../welcome/entrar";
+						</script>';
+      	}
     }else{
       $this->session->sess_destroy();
 			echo '<script>

@@ -76,10 +76,10 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'atena',
+	'username' => 'root',
 	'password' => 'root',
 	'database' => 'atena',
-	'dbdriver' => 'mysqli',
+	'dbdriver' => 'root',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

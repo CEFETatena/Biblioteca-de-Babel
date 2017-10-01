@@ -102,7 +102,6 @@ class Welcome extends CI_Controller {
 			$this->email->to($dados['email']);
 			$this->email->subject('BIBLIOTECA DE BABEL - confirmação de cadastro');
 			$this->email->message($mensagem);
-			$dadosConfirmados = $dados;
 			if($this->email->send()){
 				$this->parser->parse('cadastro_enviado',$this->url);
 							
@@ -124,13 +123,61 @@ class Welcome extends CI_Controller {
 			}		
 	}
 	
-	public function confirmado() {	
-				$array = array("logado"=>TRUE);
-						$usuario = $dados['nomeDeUsuario'];
-						$user = $this->Usuarios->pegaUsuario($usuario);
-    					$array = array_merge($array,$user[0]);
-						$this->session->set_userdata($array);								  						
-				redirect("homeUser");
+	public function esqueci(){
+		$this->parser->parse("pegarEmail.php",$this->url);	
+	}	
+	public function busca_conta(){
+		$this->load->model("Usuarios");
+		$user = $this->Usuarios->email($this->input->post("txt_email"));
+		if(!empty($user[0])){
+			$mensagem = $this->load->view("emails/recuperar_senha.php",$user[0],TRUE);
+			$this->load->library('email');
+			$this->email->from("cefetatena2017@gmail.com","Confirmação de cadastro");
+			$this->email->to($user[0]['email']);
+			$this->email->subject('BIBLIOTECA DE BABEL - Recuperação de conta');
+			$this->email->message($mensagem);
+			if($this->email->send()){
+				$this->parser->parse('recuperacao_senha',$this->url);					
+				
+			}else{
+				print_r($this->email_print_debugger());			
+			}	
+		}else{
+			echo '<script>
+								 alert("Não há uma conta registrada com esse e-mail.");
+								 location.href="javascript:history.go(-1)";
+
+						 </script>';
+		}
 	}
+	public function mudar_senha($Id){
+		$user['url'] = $this->url;
+		$user['id'] = $Id;
+		$this->parser->parse("mudar_senha",$user);	
+	}
+	public function alterar_senha(){
+		$id = $this->input->post('txt_id');
+		$dados['senha'] = sha1($this->input->post('txt_senha1'));
+		$senha= sha1($this->input->post('txt_senha2'));
+		echo "<pre>" . print_r($dados['senha']) . "</pre>";
+		echo "<pre>" . print_r($senha) . "</pre>";
+		echo "<pre>" . print_r($id) . "</pre>";
 		
+		if($dados['senha'] == $senha){
+			$this->db->where('md5(idUsuario)',$this->input->post('txt_id'));
+			if($this->db->update('usuario',$dados)){
+				echo '<script>
+								 alert("Alteração efetuada.");
+								 location.href="../welcome/entrar";
+
+						 </script>';
+			}
+		}else{
+			echo '<script>
+								 alert("Senhas não combinam");
+								 location.href="javascript:history.go(-1)";
+
+						 </script>';	
+		}
+	}
 }

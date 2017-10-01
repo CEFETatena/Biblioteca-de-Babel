@@ -60,7 +60,7 @@
             Menu <i class="fa fa-bars"></i>
         </button>
         <div class="container">
-            <a class="navbar-brand" href="../"><img src="../assets/img/exemplo3.png" width="60px" height="60px"></a>
+            <a class="navbar-brand" href="../"><img src="{url}assets/img/exemplo3.png" width="60px" height="60px"></a>
             <a class="navbar-brand" href="livros">LIVROS</a>
             <a class="navbar-brand" href="dicas">DICAS</a>
             <a class="navbar-brand" href="textos">TEXTOS</a>
@@ -87,21 +87,20 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 text-center offset-lg-2">
-            <br><br><h2>Entrar</h2>
+            <br><br><h2>ALTERAR SENHA</h2>
             <hr class="star-primary">
           </div>
           	<div class="col-lg-8 text-center offset-lg-2">
-          <form   method="POST" action="../Login/efetuar_login"  >
+          <form   method="POST" action="../alterar_senha"  >
           	<div class="col-lg-8 text-center offset-lg-2">
-          <input type="nomeUsuario" class="form-control text-center" placeholder="Inserir nome de Usuário ou E-mail" id="txtUsername" name="txtUsername" required="" data-validation-required-message="Insira nome de usuário valido">
+                 	<input type="hidden" class="form_control text-center" placeholder= '<?php echo $id ?>' id="txt_id" name="txt_id" VALUE="{id}">
+          <input type="password" class="form-control text-center" placeholder="Senha Nova" id="txt_senha1" name="txt_senha1" required="" data-validation-required-message="Insira nova senha">
    		<p class="help-block text-danger"></p>      
         
           
-          <input type="password" class="form-control text-center" placeholder="Inserir Senha" id="txtSenha" name="txtSenha" required="" data-validation-required-message="Please enter your password address.">
-			<p class="help-block text-danger"></p>           
-         
-					<a class="esquecisenha" href="{url}login/esqueci">Esqueci minha senha</a>
-						<br>
+          <input type="password" class="form-control text-center" placeholder="Confirmar Senha Nova" id="txt_senha2" name="txt_senha2" required="" data-validation-required-message="Insira nova senha novamente">
+			<p class="help-block text-danger"></p>          
+
             
 					  <br>
                 <button type="submit" class="btn btn-primary btn-lg">Enviar</button>

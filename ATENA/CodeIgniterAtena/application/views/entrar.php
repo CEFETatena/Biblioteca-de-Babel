@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Alunos" >
+    <meta name="author" content="Brian" >
 
     <title>ATENA</title>
 
@@ -100,7 +100,7 @@
           <input type="password" class="form-control text-center" placeholder="Inserir Senha" id="txtSenha" name="txtSenha" required="" data-validation-required-message="Please enter your password address.">
 			<p class="help-block text-danger"></p>           
          
-					<a class="esquecisenha" href="#">Esqueci minha senha</a>
+					<a class="esquecisenha" href="{url}welcome/esqueci">Esqueci minha senha</a>
 						<br>
             
 					  <br>

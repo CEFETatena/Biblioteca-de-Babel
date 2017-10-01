@@ -87,21 +87,18 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 text-center offset-lg-2">
-            <br><br><h2>Entrar</h2>
+            <br><br><h2>RECUPERAR CONTA</h2>
+            <p>Entre com o seu e-mail para verificarmos sua conta</p>
             <hr class="star-primary">
-          </div>
+          </div>.
           	<div class="col-lg-8 text-center offset-lg-2">
-          <form   method="POST" action="../Login/efetuar_login"  >
+          <form   method="POST" action="{url}welcome/busca_conta"  >
           	<div class="col-lg-8 text-center offset-lg-2">
-          <input type="nomeUsuario" class="form-control text-center" placeholder="Inserir nome de Usuário ou E-mail" id="txtUsername" name="txtUsername" required="" data-validation-required-message="Insira nome de usuário valido">
-   		<p class="help-block text-danger"></p>      
-        
-          
-          <input type="password" class="form-control text-center" placeholder="Inserir Senha" id="txtSenha" name="txtSenha" required="" data-validation-required-message="Please enter your password address.">
-			<p class="help-block text-danger"></p>           
+          <input type="nomeUsuario" class="form-control text-center" placeholder="Inserir E-mail" id="txt_email" name="txt_email" required="" data-validation-required-message="Insira nome de usuário valido">
+   		<p class="help-block text-danger"></p>    
+               
          
-					<a class="esquecisenha" href="{url}login/esqueci">Esqueci minha senha</a>
-						<br>
+			
             
 					  <br>
                 <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
