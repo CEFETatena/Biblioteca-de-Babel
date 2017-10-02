@@ -19,7 +19,7 @@ class Login extends CI_Controller {
     $this->load->model("Usuarios");
     $usuario = $this->input->post('txtUsername');
     $senha = sha1($this->input->post('txtSenha')); 
-    $user= $this->Usuarios->pegaUsuario($usuario);  
+    $user = $this->Usuarios->pegaUsuario($usuario);  
      if($user[0]['nomeDeUsuario'] == $usuario || $user[0]['email'] == $usuario){
      		if($senha == $user[0]['senha'] ){
     			$array = array("logado"=>TRUE);
@@ -29,17 +29,18 @@ class Login extends CI_Controller {
      			redirect("homeUser");      
       	}else{
       		$this->session->sess_destroy();
-			echo '<script>
+				echo '<script>
 							alert("NOME DE USUARIO/EMAIL ou SENHA inválidos");
 							location.href="../welcome/entrar";
 						</script>';
       	}
     }else{
       $this->session->sess_destroy();
-			echo '<script>
-							alert("NOME DE USUARIO/EMAIL ou SENHA inválidos");
-							location.href="../welcome/entrar";
-						</script>';
+		/*echo '<script>
+					alert("NOME DE USUARIO/EMAIL ou SENHA inválidos");
+					location.href="../welcome/entrar";
+				</script>';*/
+				redirect("welcome/entrar");	
     }
   }
 	public function logout(){

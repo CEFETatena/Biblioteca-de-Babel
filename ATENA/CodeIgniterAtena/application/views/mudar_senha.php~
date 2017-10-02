@@ -60,8 +60,8 @@
             Menu <i class="fa fa-bars"></i>
         </button>
         <div class="container">
-            <a class="navbar-brand" href="../"><img src="{url}assets/img/exemplo3.png" width="60px" height="60px"></a>
-            <a class="navbar-brand" href="livros">LIVROS</a>
+            <a class="navbar-brand" href="{url}welcome"><img src="{url}assets/img/exemplo3.png" width="60px" height="60px"></a>
+            <a class="navbar-brand" href="{url}welcome/livros">LIVROS</a>
             <a class="navbar-brand" href="dicas">DICAS</a>
             <a class="navbar-brand" href="textos">TEXTOS</a>
             <a class="navbar-brand" href="#about">SOBRE</a>
@@ -93,8 +93,7 @@
           	<div class="col-lg-8 text-center offset-lg-2">
           <form   method="POST" action="../alterar_senha"  >
           	<div class="col-lg-8 text-center offset-lg-2">
-          	<?php echo "<pre>" . print_r("{id}") . "</pre>"?>
-          	<input type="hidden" class="form_control text-center" placeholder= '<?php echo $id ?>' id="txt_id" name="txt_id" VALUE="{id}">
+                 	<input type="hidden" class="form_control text-center" placeholder= '<?php echo $id ?>' id="txt_id" name="txt_id" VALUE="{id}">
           <input type="password" class="form-control text-center" placeholder="Senha Nova" id="txt_senha1" name="txt_senha1" required="" data-validation-required-message="Insira nova senha">
    		<p class="help-block text-danger"></p>      
         

@@ -53,21 +53,14 @@ class Welcome extends CI_Controller {
 
 	public function cadastrarUsuario(){
 			$this->load->model("Usuarios");
-			$users= $this->Usuarios->pegaUsuarios();
-
 			$dados['nome'] = $this->input->post('txtName');
 			$dados['sobrenome'] = $this->input->post('txtSobrenome');
 			$dados['nomeDeUsuario'] = $this->input->post('txtUsername');
 			$dados['email'] = $this->input->post('txtEmail');
 			$dados['senha'] = sha1($this->input->post('txtSenha'));
 			$senha = sha1($this->input->post('txtConfirma'));
-			$ok=true;
-			foreach ($users as $u) {
-				if($dados["nomeDeUsuario"] == $u["nomeDeUsuario"] || $dados["email"] == $u["email"]){
-					$ok =false;
-				}
-			}
-			if($ok == true){
+			$user = $this->Usuarios->conferir($dados['nomeDeUsuario'],$dados['email']);
+			if(empty($user)){
 				if($dados['senha'] == $senha){
 					if($this->db->insert('usuario',$dados)){
 						$this->enviar_email_confirmacao($dados);							 
@@ -78,7 +71,7 @@ class Welcome extends CI_Controller {
 											location.href="../welcome/cadastrar";
 
 									  </script>';
-						 }
+					}
 				}else{
 					 echo '<script>
 										alert("SENHAS NÃO COMBINAM!");
@@ -88,11 +81,12 @@ class Welcome extends CI_Controller {
 				}
 			}else{
 				echo '<script>
-								 alert("NOME DE USUÁRIO OU E-MAIL JÁ EXISTEM!");
-								 location.href="javascript:history.go(-1)";
+										alert("Nome de Usuario ou e-mail já cadastrados!");
+										location.href="../welcome/cadastrar";
 
-						 </script>';
+								</script>';
 			}
+			
 	}
 
 	public function enviar_email_confirmacao($dados){
@@ -151,7 +145,7 @@ class Welcome extends CI_Controller {
 		}
 	}
 	public function mudar_senha($Id){
-		$user['url'] = $this->url;
+		$user['url'] = base_url();
 		$user['id'] = $Id;
 		$this->parser->parse("mudar_senha",$user);	
 	}

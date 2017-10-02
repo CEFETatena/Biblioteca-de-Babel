@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Alunos" >
+    <meta name="author" content="Brian" >
 
     <title>ATENA</title>
 
@@ -120,8 +120,7 @@
          <input type="password" class="form-control text-center" placeholder="Confirmar Senha" id="txtConfirma" name="txtConfirma" required="" data-validation-required-message="Confirme sua senha">
                         <p class="help-block text-danger"></p>  
                   
-          
-					<a class="esquecisenha" href="#">Esqueci minha senha</a>
+         
 					<p class="help-block text-danger"></p>  
 		       
           

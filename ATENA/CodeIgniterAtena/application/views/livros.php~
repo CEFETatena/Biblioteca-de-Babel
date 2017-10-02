@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Alunos" >
+    <meta name="author" content="Brian" >
 
     <title>ATENA</title>
 
@@ -16,14 +16,21 @@
 
 
       echo link_tag("assets/vendor/font-awesome/css/font-awesome.min.css");
+      echo link_tag("//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css");
+      echo link_tag("//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js");
       echo link_tag("https://fonts.googleapis.com/css?family=Montserrat:400,700");
       echo link_tag("https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic");
+
 
 
       echo link_tag("assets/css/freelancer.min.css");
       echo link_tag("assets/css/estilo.css");
     ?>
-
+<script>
+    $(document).ready(function(){
+  $('tabela_livros').DataTable();
+});
+</script>
     <!-- Temporary navbar container fix -->
     <style>
     .navbar-toggler {
@@ -71,6 +78,8 @@
     </nav>
 
 
+
+
     <!-- Portfolio Grid Section -->
     <br>
     <section id="portfolio">
@@ -78,31 +87,39 @@
             <h2 class="text-center">LIVROS</h2>
             <hr class="star-primary">
             <hr cforeachlass="star-primary">
-             <div class='box1'>           
-            <?php 
-					foreach($livros as $livro){
-						if($livro->permissao == 1){
-							echo "<hr><img src='{url}img/publicacoes/" . $livro->idLivro. "." .$livro->foto."' width='100''>"."<br>";
-							echo "<br><div class='livroTitulo'><b>" . $livro->titulo . "</b></div>";
-							echo "<div class='livroAutor'>" . $livro->autor ."</div>";
-				   		echo "<div class='livroDescricao'>" . $livro->descricao ."</div>";
-						foreach($usuarios as $usuario){
-						echo "<div class='livroUsuario'>".$usuario->nomeDeUsuario;
-						}				   		
-				   		
-				   	}
-					}            
-						?>
-						</div>
-		
-						
+
+            <div class='box1'>
+              <?php
+              echo "<table id='tabela_livros' border = '0.5'>" .
+                    "<tr>" .
+                      "<th width = '10%'></th>" .
+                      "<th width = '30%'></th>" .
+
+                    "</tr>";
+                    foreach($livros as $livro){
+                      if($livro->permissao == 1){
+                        echo  "<tr>" .
+                              "<td><img src='{url}img/publicacoes/" . $livro->idLivro. "." .$livro->foto."' width='100'</td>" .
+                              "<td><b>Título:</b> <div class='livroTitulo'><b>" . $livro->titulo . "</b></div>" .
+                              "<hr>Autor: <div class='livroAutor'>" . $livro->autor ."</div>" .
+                              "<hr>Descrição: <div class='livroDescricao'>" . $livro->descricao ."<hr><br></div></td>";
+
+                      }
+                    }
+                    echo "</tr>" . "<hr>" .
+                  "</table>";
+
+        ?>
+        </div>
+
+
         </div>
     </section>
 
     <!-- About Section -->
-    
+
     <section class="success" id="about">
-		<br>        
+		<br>
         <div class="container">
             <h2 class="text-center">SOBRE</h2>
             <hr class="star-light">
@@ -120,9 +137,9 @@
 
     </section>
 
-   
 
-   
+
+
     <!-- Bootstrap core JavaScript -->
     <script src="{url}assets/vendor/jquery/jquery.min.js"></script>
     <script src="{url}assets/vendor/tether/tether.min.js"></script>

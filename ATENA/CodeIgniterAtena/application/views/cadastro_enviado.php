@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Alunos" >
+    <meta name="author" content="Brian" >
 
     <title>BIBLIOTECA DE BABEL</title>
 
@@ -45,9 +45,9 @@
         </button>
         <div class="container">
             <a class="navbar-brand" href="{url}welcome"><img src="{url}assets/img/exemplo3.png" width="60px" height="60px"></a>
-            <a class="navbar-brand" href="welcome/livros">LIVROS</a>
-            <a class="navbar-brand" href="welcome/dicas">DICAS</a>
-            <a class="navbar-brand" href="welcome/textos">TEXTOS</a>
+            <a class="navbar-brand" href="{url}welcome/livros">LIVROS</a>
+            <a class="navbar-brand" href="{url}welcome/dicas">DICAS</a>
+            <a class="navbar-brand" href="{url}welcome/textos">TEXTOS</a>
             <a class="navbar-brand" href="#about">SOBRE</a>
 
         </div>

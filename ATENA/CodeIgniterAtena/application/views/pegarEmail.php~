@@ -92,7 +92,7 @@
             <hr class="star-primary">
           </div>.
           	<div class="col-lg-8 text-center offset-lg-2">
-          <form   method="POST" action="../Login/busca_conta"  >
+          <form   method="POST" action="{url}welcome/busca_conta"  >
           	<div class="col-lg-8 text-center offset-lg-2">
           <input type="nomeUsuario" class="form-control text-center" placeholder="Inserir E-mail" id="txt_email" name="txt_email" required="" data-validation-required-message="Insira nome de usuário valido">
    		<p class="help-block text-danger"></p>    

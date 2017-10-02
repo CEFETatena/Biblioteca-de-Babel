@@ -3,6 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuarios extends CI_Model {
 
+	 public function conferir($nomeDeUsuario,$email) {
+	 	return $resultado = $this->db->query("SELECT * FROM usuario WHERE nomeDeUsuario = '$nomeDeUsuario' OR email = '$email'")->result();
+	 }
     public function pegaUsuarios($id = NULL) {
     	return $resultado = $this->db->query("SELECT * FROM usuario")->result();
     }

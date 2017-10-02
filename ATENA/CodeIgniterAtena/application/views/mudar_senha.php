@@ -60,10 +60,10 @@
             Menu <i class="fa fa-bars"></i>
         </button>
         <div class="container">
-            <a class="navbar-brand" href="../"><img src="{url}assets/img/exemplo3.png" width="60px" height="60px"></a>
-            <a class="navbar-brand" href="livros">LIVROS</a>
-            <a class="navbar-brand" href="dicas">DICAS</a>
-            <a class="navbar-brand" href="textos">TEXTOS</a>
+            <a class="navbar-brand" href="{url}welcome"><img src="{url}assets/img/exemplo3.png" width="60px" height="60px"></a>
+            <a class="navbar-brand" href="{url}welcome/livros">LIVROS</a>
+            <a class="navbar-brand" href="{url}welcome/dicas">DICAS</a>
+            <a class="navbar-brand" href="{url}welcome/textos">TEXTOS</a>
             <a class="navbar-brand" href="#about">SOBRE</a>
 
             <div class="collapse navbar-collapse" id="navbarExample">

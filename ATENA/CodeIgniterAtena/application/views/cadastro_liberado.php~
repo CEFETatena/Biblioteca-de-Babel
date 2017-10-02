@@ -44,7 +44,7 @@
             Menu <i class="fa fa-bars"></i>
         </button>
         <div class="container">
-            <a class="navbar-brand" href=""><img src="{url}assets/img/exemplo3.png" width="60px" height="60px"></a>
+            <a class="navbar-brand" href="{url}welcome"><img src="{url}assets/img/exemplo3.png" width="60px" height="60px"></a>
             <a class="navbar-brand" href="welcome/livros">LIVROS</a>
             <a class="navbar-brand" href="welcome/dicas">DICAS</a>
             <a class="navbar-brand" href="welcome/textos">TEXTOS</a>
@@ -61,7 +61,7 @@
             
                 <h1><p>CADASTRO LIBERADO</p></h1>
 							<p>VOCÊ JÁ PODE LOGAR NO SITE</p>	
-							<?php echo anchor(base_url("welcome/login"),"ENTRAR", array("class" => "btn btn-mediun btn-success"));?>
+							<?php echo anchor(base_url("welcome/entrar"),"ENTRAR", array("class" => "btn btn-mediun btn-success"));?>
 						
                 <img class="img-fluid" id="img2" src="{url}assets/img/estrela2.png" alt="">
                 
