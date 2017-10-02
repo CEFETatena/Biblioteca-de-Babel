@@ -227,10 +227,20 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
+table{
+	border-radius: 10px;
+}
+
 table a{
 	 padding: 8px;
 	 
 }
+
+table th{
+	background-color: #708090;
+	
+}
+
 
 
 .tabelaEditavel {
@@ -238,7 +248,7 @@ table a{
     width:100%
 }
 
-.tabelaEditavel #editarTD {
+.tabelaEditavel td {
     border:solid 1px;
 }
 

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Alunos" >
+    <meta name="author" content="Brian" >
 
     <title>ATENA</title>
 
@@ -65,32 +65,32 @@
         		<br>
             <h2 class="text-center">USUÁRIOS</h2>
             <hr class="star-primary">
-            <div class="usuarios">
+            <div class="box1">
            	 	<?php 
 						echo form_open(base_url("homeAdm/buscarUsuario")) . 
 								form_label('BUSCAR POR: ', 'txt_busca') .
 								form_input('txt_busca') .
 								form_close();	
 						
-						echo "<table class = 'tabelaEditavel'>" .
-										"<thead><tr>" .
+						echo "<table>" .
+										"<tr>" .
 											"<th width = '20%'>NOME</th>" .
 											"<th width = '20%'>SOBRENOME</th>" .
 											"<th width = '20%'>NOME DE USUÁRIO</th>" .
 											"<th width = '30%'>EMAIL</th>" .
 											"<th width = '5%'>PERFIL</th>" .
 											"<th width = '5%'>STATUS</th>" .											
-										"</tr></thead>";
+										"</tr>";
 										foreach($usuarios as $usuario){
 							 						echo
-														"<tbody><tr>" .										
+														"<tr>" .										
 							 								"<td>" . $usuario->nome . "</td>" .
 							 								"<td>" . $usuario->sobrenome . "</td>" .
 							 								"<td>" . $usuario->nomeDeUsuario . "</td>" .
 							 								"<td>" . $usuario->email . "</td>" .
 							 								"<td>" . $usuario->perfil . "</td>" .
 							 								"<td>" . $usuario->status . "</td>"	.						 								
-				   		 							"</tr></tbody>";
+				   		 							"</tr>";
 				   		 			}
 				   		 "</table>";						
 						           	 	
@@ -116,7 +116,7 @@
     <script src="../assets/js/jqBootstrapValidation.js"></script>
     <script src="../assets/js/contact_me.js"></script>
     <script src="../assets/js/jquery-3.2.1.min.js"></script>
-    <script src="../assets/js/script.js"></script>
+    <!--<script src="../assets/js/script.js"></script>-->
 
     <!-- Custom scripts for this template -->
     <script src="../assets/js/freelancer.min.js"></script>

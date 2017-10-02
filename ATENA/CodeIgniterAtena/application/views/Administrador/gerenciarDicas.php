@@ -64,20 +64,25 @@
         <div class="container">
             <h2 class="text-center">DICAS</h2>
             <hr class="star-primary">
-            <div class="dicas">
+            <div class="box1">
            	 <?php 
-					echo "<table border = '1'>" .
+           	 	echo form_open(base_url("DicasAdm/buscar")) . 
+								form_label('BUSCAR POR: ', 'txt_busca') .
+								form_input('txt_busca') .
+								form_close();
+					echo "<table>" .
 										"<tr>" .
-											"<th width = '60%'>INFORMAÇÕES</th>" .
-											"<th width = '40%'>OPERAÇÕES</th>".
+											"<th width = '20%'>TÍTULO</th>" .
+											"<th width = '40%'>DESCRIÇÃO</th>".
+											"<th width = '40%'>OPERAÇÃO</th>".
 										"</tr>";
 										foreach($dicas as $dica){
 											if($dica->permissao == 0){
 												echo  "<tr>" .							 
 							 								"<td>Título: <div class='dicaTitulo'><b>" . $dica->titulo . "</b></div>" .							 						
-				   		 								"<hr>Descrição: <div class='livroDescricao'>" . $dica->descricao ."</div></td>" .
-				   		 								"<td>" . anchor(base_url("dicasAdm/permitir/" . $dica->idDica),"Permitir", array("class"=>"btn btn-mediun btn-success")) . "<hr>" .
-				   		 						 					anchor(base_url("dicasAdm/corrigir/" . $dica->idDica),"Corrigir", array("class"=>"btn btn-mediun btn-warning")) . "<hr>" .
+				   		 								"<td>Descrição: <div class='livroDescricao'>" . $dica->descricao ."</div></td>" .
+				   		 								"<td>" . anchor(base_url("dicasAdm/permitir/" . $dica->idDica),"Permitir", array("class"=>"btn btn-mediun btn-success")) .
+				   		 						 					anchor(base_url("dicasAdm/corrigir/" . $dica->idDica),"Corrigir", array("class"=>"btn btn-mediun btn-warning")) .
 				   		 						 					anchor(base_url("dicasAdm/recusar/" . $dica->idDica),"Recusar", array("class"=>"btn btn-mediun btn-danger")) .
 				   		 								"</td>";
 				   		 				}

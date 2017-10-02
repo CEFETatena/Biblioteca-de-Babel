@@ -8,7 +8,7 @@ $(function () {
 
         $(this).children().first().keypress(function (e) {
             if (e.which == 13) {
-                var novoConteudo = $(this).val();
+                var novoConteudo = $(this).val();                
                 $(this).parent().text(novoConteudo);
                 $(this).parent().removeClass("celulaEmEdicao");
             }

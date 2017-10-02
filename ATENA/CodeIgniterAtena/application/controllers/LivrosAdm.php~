@@ -22,7 +22,6 @@ class LivrosAdm extends CI_Controller {
 		$arquivo = explode(".", $_FILES["imagem"]["name"]);
 		$dados['foto'] = $arquivo[1];
 		if($this->db->insert('livro',$dados)){
-			$url['url'] = base_url();
 			$url['idLivro'] = $this->db->insert_id();
 			$config['upload_path'] = 'img/publicacoes';
 			$config['allowed_types'] = 'jpg|jpeg|png';
@@ -114,6 +113,16 @@ class LivrosAdm extends CI_Controller {
 					</script>
 					</body> </html>';
 		}
+	}
+	
+	public function buscar(){
+		$termo = $this->input->post('txt_busca');
+		$this->load->model("Busca");
+		//$user = $this->session->get_userdata();
+		$dados['livros'] = $this->Busca->buscaLivros($termo);
+		$dados['url'] = base_url();
+		$this->parser->parse('Administrador/buscaLivros.php',$user);
+		
 	}
 	
 }

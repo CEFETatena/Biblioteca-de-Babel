@@ -60,12 +60,14 @@ class HomeAdm extends CI_Controller {
 	public function gerenciarUsuarios(){
 		$user = $this->session->get_userdata();
 		$user['url'] = base_url();
+		$this->load->modal("Usuarios");
+		$user['usuarios'] = $this->Usuarios->pegaUsuarios();
 		$this->parser->parse('Administrador/gerenciarUsuarios.php',$user);
 	}
 	//BUSCA
 	public function buscarUsuario(){
 		$this->load->model('Usuarios');
-		$dados['usuario'] = $this->Usuarios->busca($this->input->post('txt_busca'));
+		$dados['usuarios'] = $this->Usuarios->busca($this->input->post('txt_busca'));
 		$this->load->view('Administrador/buscaUsuario',$dados);
 	}
 }

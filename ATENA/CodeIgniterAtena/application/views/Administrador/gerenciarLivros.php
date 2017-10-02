@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Alunos" >
+    <meta name="author" content="Brian" >
 
     <title>ATENA</title>
 
@@ -70,22 +70,29 @@
             <h2 class="text-center">GERENCIAR LIVROS</h2>
             <hr class="star-primary">
             <div class='box1'>           
-            	<?php 					
-							echo "<table border = '1'>" .
+            	<?php 
+            		echo form_open(base_url("LivrosAdm/buscar")) . 
+								form_label('BUSCAR POR: ', 'txt_busca') .
+								form_input('txt_busca') .
+								form_close();
+													
+							echo "<table>" .
 										"<tr>" .
-											"<th width = '20%'>IMAGEM</th>" .
-											"<th width = '40%'>INFORMAÇÕES</th>" .
-											"<th width = '40%'>OPERAÇÕES</th>".
+											"<th width = '5%'>IMAGEM</th>" .
+											"<th width = '20%'>TÍTULO</th>" .
+											"<th width = '20%'>AUTOR</th>".
+											"<th width = '40%'>DESCRIÇÃO</th>".
+											"<th width = '15%'>OPERAÇÃO</th>".
 										"</tr>";
 										foreach($livros as $livro){
 											if($livro->permissao == 0){
 												echo  "<tr>" .
 							 								"<td><img src='{url}img/publicacoes/" . $livro->idLivro. "." .$livro->foto."' width='100'</td>" .
-							 								"<td>Título: <div class='livroTitulo'><b>" . $livro->titulo . "</b></div>" .
-							 								"<hr>Autor: <div class='livroAutor'>" . $livro->autor ."</div>" .
-				   		 								"<hr>Descrição: <div class='livroDescricao'>" . $livro->descricao ."</div></td>" .
-				   		 								"<td>" . anchor(base_url("livrosAdm/permitir/" . $livro->idLivro),"Permitir", array("class"=>"btn btn-mediun btn-success")) . "<hr>" .
-				   		 						 					anchor(base_url("livrosAdm/corrigir/" . $livro->idLivro),"Corrigir", array("class"=>"btn btn-mediun btn-warning")) . "<hr>" .
+							 								"<td>Título: <div class='livroTitulo'><b>" . $livro->titulo . "</b></div></td>" .
+							 								"<td>Autor: <div class='livroAutor'>" . $livro->autor ."</div></td>" .
+				   		 								"<td>Descrição: <div class='livroDescricao'>" . $livro->descricao ."</div></td></td>" .
+				   		 								"<td>" . anchor(base_url("livrosAdm/permitir/" . $livro->idLivro),"Permitir", array("class"=>"btn btn-mediun btn-success")) .
+				   		 						 					anchor(base_url("livrosAdm/corrigir/" . $livro->idLivro),"Corrigir", array("class"=>"btn btn-mediun btn-warning")) .
 				   		 						 					anchor(base_url("livrosAdm/recusar/" . $livro->idLivro),"Recusar", array("class"=>"btn btn-mediun btn-danger")) .
 				   		 								"</td>";
 				   		 				}

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Alunos" >
+    <meta name="author" content="Brian" >
 
     <title>ATENA</title>
 
@@ -65,14 +65,14 @@
         		<br>
             <h2 class="text-center">USUÁRIOS</h2>
             <hr class="star-primary">
-            <div class="usuarios">
+            <div class="box1">
            	 	<?php 
 						echo form_open(base_url("homeAdm/buscarUsuario")) . 
 								form_label('BUSCAR POR: ', 'txt_busca') .
 								form_input('txt_busca') .
 								form_close();
 						
-						/*echo "<table>" .
+						echo "<table>" .
 										"<tr>" .
 											"<th width = '20%'>NOME</th>" .
 											"<th width = '20%'>SOBRENOME</th>" .
@@ -80,7 +80,7 @@
 											"<th width = '30%'>EMAIL</th>" .
 											"<th width = '5%'>PERFIL</th>" .
 											"<th width = '5%'>STATUS</th>" .											
-										"</tr>";
+										"</tr>";										
 										foreach($usuarios as $usuario){
 							 						echo
 														"<tr>" .										
@@ -92,7 +92,7 @@
 							 								"<td>" . $usuario->status . "</td>"	.						 								
 				   		 							"</tr>";
 				   		 			}
-				   		 "</table>";*/					
+				   		 "</table>";				
 						           	 	
            	 	?>
            	 	
@@ -118,6 +118,8 @@
     <script src="{url}assets/js/jqBootstrapValidation.js"></script>
     <script src="{url}assets/js/contact_me.js"></script>
     <script src="{url}assets/js/jquery-3.2.1.js"></script>
+    <script src="{url}assets/js/script.js"></script>
+    
 
     <!-- Custom scripts for this template -->
     <script src="{url}assets/js/freelancer.min.js"></script>

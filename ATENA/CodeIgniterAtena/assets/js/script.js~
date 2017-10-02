@@ -19,5 +19,5 @@ $(function () {
 		$(this).parent().removeClass("celulaEmEdicao");
 	});
     });
-   
+   //location.href="../welcome/cadastrar";
 });

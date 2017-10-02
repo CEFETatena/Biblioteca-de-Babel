@@ -115,4 +115,14 @@ class LivrosAdm extends CI_Controller {
 		}
 	}
 	
+	public function buscar(){
+		$termo = $this->input->post('txt_busca');
+		$this->load->model("Busca");
+		//$user = $this->session->get_userdata();
+		$dados['livros'] = $this->Busca->buscaLivros($termo);
+		$dados['url'] = base_url();
+		$this->parser->parse('Administrador/buscaLivros.php',$dados);
+		
+	}
+	
 }

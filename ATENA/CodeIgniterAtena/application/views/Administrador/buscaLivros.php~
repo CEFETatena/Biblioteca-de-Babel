@@ -42,15 +42,20 @@
 <body class="index" id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-toggleable-md navbar-light" id="mainNav">
+     <nav class="navbar fixed-top navbar-toggleable-md navbar-light" id="mainNav">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
             Menu <i class="fa fa-bars"></i>
         </button>
-      <div class="container">
-				<h2 class="text-center2">BIBLIOTECA DE BABEL</h2>            
-				<div class="collapse navbar-collapse" id="navbarExample">
-        			<ul class="navbar-nav ml-auto">
-               	<?php echo anchor(base_url("homeAdm"),"VOLTAR", array("class" => "btn btn-mediun btn-primary")) ?>
+       <div class="container">
+				<a class="navbar-brand" href="{url}homeAdm"><img src="{url}assets/img/logoadm.png" width="60px" height="60px"></a>
+				<h2 class="text-center2">ADMINISTRAÇÃO</h2>         		
+            <div class="collapse navbar-collapse" id="navbarExample">
+
+                <ul class="navbar-nav ml-auto">
+                	
+                   <?php echo anchor(base_url("homeAdm"),"VOLTAR", array("class" => "btn btn-mediun btn-primary")) ?>
+
+     					 </li>
              
                 </ul>
             </div>
@@ -61,43 +66,43 @@
     <!-- Portfolio Grid Section -->
     <br>
     <section id="portfolio">
-        <div class="container">
-            <h2 class="text-center">DICAS</h2>
+        <div class="col-lg-8 offset-lg-2">
+            <h2 class="text-center">GERENCIAR LIVROS</h2>
             <hr class="star-primary">
-            <div class="dicas">
-           	 <?php 
-           	 	echo form_open(base_url("DicasAdm/buscar")) . 
+            <div class='box1'>           
+            	<?php 
+            		echo form_open(base_url("LivrosAdm/buscar")) . 
 								form_label('BUSCAR POR: ', 'txt_busca') .
 								form_input('txt_busca') .
 								form_close();
-					echo "<table>" .
+													
+							echo "<table border = '1'>" .
 										"<tr>" .
+											"<th width = '10%'>IMAGEM</th>" .
 											"<th width = '20%'>TÍTULO</th>" .
+											"<th width = '20%'>AUTOR</th>".
 											"<th width = '40%'>DESCRIÇÃO</th>".
-											"<th width = '40%'>OPERAÇÃO</th>".
+											"<th width = '10%'>OPERAÇÃO</th>".
 										"</tr>";
-										foreach($dicas as $dica){
-											if($dica->permissao == 0){
-												echo  "<tr>" .							 
-							 								"<td>Título: <div class='dicaTitulo'><b>" . $dica->titulo . "</b></div>" .							 						
-				   		 								"<td>Descrição: <div class='livroDescricao'>" . $dica->descricao ."</div></td>" .
-				   		 								"<td>" . anchor(base_url("dicasAdm/permitir/" . $dica->idDica),"Permitir", array("class"=>"btn btn-mediun btn-success")) .
-				   		 						 					anchor(base_url("dicasAdm/corrigir/" . $dica->idDica),"Corrigir", array("class"=>"btn btn-mediun btn-warning")) .
-				   		 						 					anchor(base_url("dicasAdm/recusar/" . $dica->idDica),"Recusar", array("class"=>"btn btn-mediun btn-danger")) .
-				   		 								"</td>";
-				   		 				}
+										foreach($livros as $livro){
+											echo  "<tr>" .
+							 								"<td><img src='{url}img/publicacoes/" . $livro->idLivro. "." .$livro->foto."' width='100'</td>" .
+							 								"<td>Título: <div class='livroTitulo'><b>" . $livro->titulo . "</b></div></td>" .
+							 								"<td>Autor: <div class='livroAutor'>" . $livro->autor ."</div></td>" .
+				   		 								"<td>Descrição: <div class='livroDescricao'>" . $livro->descricao ."</div></td>" .
+				   		 								"<td>" . anchor(base_url("livrosAdm/corrigir/" . $livro->idLivro),"Editar", array("class"=>"btn btn-mediun btn-warning")) . "<hr>" .
+				   		 						 		
+				   		 							"</td>";
 				   		 			}
 				   		 			echo "</tr>" .
-				   		 		"</table>";       
-					?>       
-            </div>
-
-
-
-     </div>
-
-     
-
+				   		 		"</table>";				   		 			
+				   	           
+				?>
+				</div>
+		
+						
+        </div>
+    </section>
 
     <!-- About Section -->
     <section class="success" id="about">
@@ -118,6 +123,9 @@
 
     </section>
 
+   
+
+   
     <!-- Bootstrap core JavaScript -->
     <script src="{url}assets/vendor/jquery/jquery.min.js"></script>
     <script src="{url}assets/vendor/tether/tether.min.js"></script>
