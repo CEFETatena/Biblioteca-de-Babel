@@ -112,7 +112,7 @@
 				<p class="help-block text-danger"></p>  
                   
           
-         <input type="password" class="form-control text-center" placeholder="Inserir Senha" id="txtSenha" name="txtSenha" required="" data-validation-required-message="Insira sua senha">
+         <input type="password" class="form-control text-center" placeholder="Inserir Senha" id="txtSenha" name="txtSenha" required="" pattern=".{8,}" required title ="Minimo 8 caracteres" data-validation-required-message="Insira sua senha">
                           <p class="help-block text-danger"></p>  
                   
                   

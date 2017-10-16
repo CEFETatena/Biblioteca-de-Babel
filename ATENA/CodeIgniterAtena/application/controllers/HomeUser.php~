@@ -14,7 +14,6 @@ class HomeUser extends CI_Controller {
 		}else if($this->session->userdata('status') == 0){
 			redirect("welcome/entrar");
 		}
-		
 
 	}
 

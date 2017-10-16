@@ -123,7 +123,7 @@ class HomeUser extends CI_Controller {
 						</script>
 					</body> </html>';
 		}else {
-			'<html> <body>
+			echo '<html> <body>
 						<script>
 							alert("ERRO AO ENVIAR \n tente novamente");
 							window.location = ("'.base_url().'homeUser/enviarLivrosUser");

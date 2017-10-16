@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Alunos" >
+    <meta name="author" content="Brian" >
 
     <title>ATENA</title>
 
@@ -79,14 +79,22 @@
             <hr class="star-primary">
             <div class="dicas">
            	 <?php 
-					foreach($dicas as $dica){					
-						if($dica->permissao == 1){ 	
-							echo "<hr><div class='box1'>" .									 
-							  			"<b>".$dica->titulo ."</b><br>" . 							  	
-								  		$dica->descricao . "<br>" .
-							  		"</div>";
-						}
-					}           
+					 echo "<table id='tabela_livros' border = '0.5'>" .
+                    "<tr>" .
+                      "<th width = '10%'></th>" .
+                      "<th width = '30%'></th>" .
+
+                    "</tr>";
+                    foreach($dicas as $dica){
+                      if($dica->permissao == 1){
+                        echo  "<tr>" .
+                              	"<td> <b>Título:</b>" . $dica->titulo . "</td>" .
+               						"<td>Descrição:  <div class='livroDescricao'>" . $dica->descricao ."<hr></td>" . 
+               					"</tr>" . "<hr>";
+                      }
+                    }
+                    
+                  echo "</table>";           
 					?>       
             </div>
 

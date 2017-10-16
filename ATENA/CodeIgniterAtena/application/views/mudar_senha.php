@@ -94,7 +94,7 @@
           <form   method="POST" action="../alterar_senha"  >
           	<div class="col-lg-8 text-center offset-lg-2">
                  	<input type="hidden" class="form_control text-center" placeholder= '<?php echo $id ?>' id="txt_id" name="txt_id" VALUE="{id}">
-          <input type="password" class="form-control text-center" placeholder="Senha Nova" id="txt_senha1" name="txt_senha1" required="" data-validation-required-message="Insira nova senha">
+          <input type="password" class="form-control text-center" placeholder="Senha Nova" id="txt_senha1" name="txt_senha1" required="" pattern=".{8,}" required title ="Minimo 8 caracteres" data-validation-required-message="Insira nova senha">
    		<p class="help-block text-danger"></p>      
         
           

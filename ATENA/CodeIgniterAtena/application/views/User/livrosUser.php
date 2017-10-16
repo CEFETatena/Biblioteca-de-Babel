@@ -84,14 +84,24 @@
             <hr class="star-primary">
              <div class='box1'>           
             	<?php 
-						foreach($livros as $livro){
-							if($livro->permissao == 1){
-								echo "<hr><img src='{url}img/publicacoes/" . $livro->idLivro. "." .$livro->foto."' width='100''>"."<br>";
-								echo "<br><div class='livroTitulo'><b>" . $livro->titulo . "</b></div>";
-								echo "<div class='livroAutor'>" . $livro->autor ."</div>";
-				   			echo "<div class='livroDescricao'>" . $livro->descricao ."</div>";
-				   		}
-						}            
+						echo "<table id='tabela_livros' border = '0.5'>" .
+                    "<tr>" .
+                      "<th width = '10%'></th>" .
+                      "<th width = '30%'></th>" .
+
+                    "</tr>";
+                    foreach($livros as $livro){
+                      if($livro->permissao == 1){
+                        echo  "<tr>" .
+                              "<td><img src='{url}img/publicacoes/" . $livro->idLivro. "." .$livro->foto."' width='200'</td>" .
+                              "<td><b>Título:</b> <div class='livroTitulo'><b>" . $livro->titulo . "</b></div>" .
+                              "<hr>Autor: <div class='livroAutor'>" . $livro->autor ."</div>" .
+                              "<hr>Descrição: <div class='livroDescricao'>" . $livro->descricao ."<hr><br></div></td>";
+
+                      }
+                    }
+                    echo "</tr>" . "<hr>" .
+                  "</table>";           
 					?>
 				</div>
 		

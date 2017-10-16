@@ -42,6 +42,22 @@ class HomeAdm extends CI_Controller {
 		redirect(base_url("Login/logout"));
 	}
 	
+	public function publicarTexto(){
+		$dados['titulo'] = $this->input->post("txtTitulo");
+		$dados['autor'] = $this->input->post("txtAutor");
+		$dados['texto'] = $this->input->post("txtTexto");
+		$dados['permissao'] = 1;
+		if($this->db->insert('texto',$dados)){
+			echo '
+					<html> <body>
+					<script>
+						alert("Publicação realizada.");
+						window.location = ("'.base_url().'homeAdm/textoAdm");
+					</script>
+					</body> </html>';
+		}
+	}
+	
 //GERENCIA AS PUBLICAÇÕES FEITAS PELOS USUÁRIOS
 	public function gerenciarLivros() {
 		$user = $this->session->get_userdata();
@@ -60,7 +76,7 @@ class HomeAdm extends CI_Controller {
 	public function gerenciarUsuarios(){
 		$user = $this->session->get_userdata();
 		$user['url'] = base_url();
-		$this->load->modal("Usuarios");
+		$this->load->model("Usuarios");
 		$user['usuarios'] = $this->Usuarios->pegaUsuarios();
 		$this->parser->parse('Administrador/gerenciarUsuarios.php',$user);
 	}
